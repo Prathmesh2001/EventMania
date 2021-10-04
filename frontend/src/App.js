@@ -17,7 +17,7 @@ function App() {
         <Navbar title = "EventMania"/>
         <div>
           <Switch>
-            <Route exact path="/">
+            <Route exact path="/home">
               <Home/>
             </Route>
             <Route exact path = "/about">
