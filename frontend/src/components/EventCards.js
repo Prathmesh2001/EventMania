@@ -4,7 +4,7 @@ function EventCards(props) {
 
     return (
         <>
-                <div className="card mb-3">
+                <div className="card m-5">
                         <div className="img-container">
                             <img src={'http://127.0.0.1:8000'+props.photoName} alt={props.photoName} />
                         </div>
