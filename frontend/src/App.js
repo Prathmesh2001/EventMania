@@ -1,5 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
+import './CSS/Home.css';
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,6 +9,7 @@ import {
 import Navbar from './components/Navbar';
 import About from './components/About';
 import Home from './components/Home';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -25,6 +27,7 @@ function App() {
             </Route>
           </Switch>
         </div>
+        <Footer/>
       </Router>
     </>
   );
