@@ -1,6 +1,3 @@
-a,a:visited,a:hover{
-    color: #ffffff;
-}
 
 .home-container{
     min-height: 160vh;
@@ -76,52 +73,7 @@ a,a:visited,a:hover{
 /* ########################## all events ############################## */
 .all-events{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(350px,1fr));
 }
 
 
-
-/* ########################## Footer ############################## */
-footer{
-    background-color: #333446;
-    color: #ffffff;
-    padding: 2rem 0;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-}
-
-.social-media-links{
-    /* border: 1px solid red; */
-    display: flex;
-    justify-content: space-between;
-    width: 20rem;
-}
-
-.media-link{
-    border: 1px solid #ffffff;
-    border-radius: 50%;
-    width: 3rem;
-    height: 3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.media-link, .fab{
-    transition: all 0.1s ease-in-out;
-}
-.fab{
-    transform: scale(1.5);
-}
-.media-link:hover .fab{
-    transform: scale(2);
-}
-
-
-
-@media (max-width:500px){
-    html{
-        font-size: 80%;
-    }
-}

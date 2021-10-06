@@ -1,6 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
-import './CSS/Home.css';
+import './CSS/style.css';
 import {
   BrowserRouter as Router,
   Switch,
