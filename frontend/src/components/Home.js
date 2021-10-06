@@ -8,7 +8,7 @@ function Home() {
     const [myEvent, setEvent] = useState([])
 
     useEffect(() => {
-        fetch('http://127.0.0.1:8000/event', {
+        fetch('http://127.0.0.1:8000/api/event', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

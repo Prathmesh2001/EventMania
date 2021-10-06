@@ -14,6 +14,7 @@ from django.conf import settings
 urlpatterns = [
     path('list/', views.UserList.as_view()),
     path('create/', views.UserCreate.as_view()),
+    path('retrieve/<str:email>', views.UserRetrieve),
     url(r'^event$', views.EventFunc),
     # path('event/', include(route.urls)),
     url(r'^event/([0-9]+)$', views.EventFunc),

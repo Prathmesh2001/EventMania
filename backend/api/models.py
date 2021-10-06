@@ -4,6 +4,7 @@ from django.db.models.base import Model
 # Create your models here.
 class User(models.Model):
     user_id=models.AutoField(primary_key=True)
+    full_name=models.CharField(max_length=50,default='')
     email=models.EmailField()
     password = models.CharField(max_length=50)
 
