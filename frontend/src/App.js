@@ -10,6 +10,7 @@ import Navbar from './components/Navbar';
 import About from './components/About';
 import Home from './components/Home';
 import Footer from './components/Footer';
+import EventDetail from './components/EventDetail';
 
 
 function App() {
@@ -25,6 +26,10 @@ function App() {
             <Route exact path = "/about">
               <About/>
             </Route>
+            <Route exact path = "/:id">
+              <EventDetail />
+            </Route>
+            <Route >404</Route>
           </Switch>
         </div>
         <Footer/>

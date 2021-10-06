@@ -31,18 +31,15 @@ function Home() {
                             myEvent.map((oneElem) => {
                                 return (
                                     <div key={oneElem.EventId}>
-                                        <EventCards photoName={oneElem.EventPhotoName} name={oneElem.EventName} desc={oneElem.EventDescription} eventdate={oneElem["DateOfEvent"]} venue={oneElem.EventVenue} cost={oneElem.EventCost} />
+                                        <EventCards id={oneElem.EventId} photoName={oneElem.EventPhotoName} name={oneElem['EventName']} desc={oneElem.EventDescription} eventdate={oneElem["DateOfEvent"]} venue={oneElem.EventVenue} cost={oneElem.EventCost} />
                                     </div>
                                 )
                             }
                             )
                         }
-
-                        {/* <EventCards/>
-                        <EventCards/> */}
+                        </div>
                     </div>
                 </div>
-            </div>
         </>
     )
 }

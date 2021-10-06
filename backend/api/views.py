@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 from django.http.response import JsonResponse
+from rest_framework import viewsets
 
 from django.core.files.storage import default_storage
 
@@ -18,12 +19,25 @@ class UserCreate(CreateAPIView):
     queryset=User.objects.all()
     serializer_class=UserSerializer
 
+
+
 @csrf_exempt
-def EventFunc(request, id=0):
+def EventFunc(request, id=-1,):
+
     if request.method=='GET':
-        events = Event.objects.all()
-        event_serializer = EventSerializer(events, many=True)
-        return JsonResponse(event_serializer.data, safe=False)
+        #show all
+        if(int(id) < 0):
+            events = Event.objects.all()
+            event_serializer = EventSerializer(events, many=True)
+            return JsonResponse(event_serializer.data, safe=False)
+        #show for specific id
+        else:
+            try:
+                event = Event.objects.get(EventId = id)
+                event_serializer = EventSerializer(event)
+                return JsonResponse(event_serializer.data, safe=False)
+            except:
+                return JsonResponse("404", safe=False)
 
     elif request.method == 'POST':
         event_data = JSONParser().parse(request)
