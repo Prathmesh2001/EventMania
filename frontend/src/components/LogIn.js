@@ -48,7 +48,7 @@ export default function LogIn() {
                     <label htmlFor="signinpassword" className="form-label">Password</label>
                     <input type="password" className="form-control" id="signinpassword" value={signInfo.password} onChange={e => setsignInfo({ email: signInfo.email, password: e.target.value })} required/>
                 </div>
-                <button type="button" className="btn btn-primary" onClick={checkuser} data-bs-dismiss='modal'>Submit</button>
+                <button type="button" className="btn btn-success" onClick={checkuser} data-bs-dismiss='modal'>Submit</button>
             </form>
         </div>
     )

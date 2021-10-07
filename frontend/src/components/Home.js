@@ -24,14 +24,15 @@ function Home() {
 
                 <Carousel/>
                 
-                <div className="my-container">
+                <div className="my-container text-center my-5">
                     <h3>Trending</h3>
                     <div className="all-events">
                         {
                             myEvent.map((oneElem) => {
+                                console.log(oneElem.EventPhotoName)
                                 return (
                                     <div key={oneElem.EventId}>
-                                        <EventCards id={oneElem.EventId} photoName={oneElem.EventPhotoName} name={oneElem['EventName']} desc={oneElem.EventDescription} eventdate={oneElem["DateOfEvent"]} venue={oneElem.EventVenue} cost={oneElem.EventCost} />
+                                        <EventCards id={oneElem.EventId} photoName={oneElem['EventPhotoName']} name={oneElem['EventName']} desc={oneElem.EventDescription} eventdate={oneElem["DateOfEvent"]} venue={oneElem.EventVenue} cost={oneElem.EventCost} />
                                     </div>
                                 )
                             }

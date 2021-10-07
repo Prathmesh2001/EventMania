@@ -60,7 +60,7 @@ export default function Register() {
                     <label htmlFor="password" className="form-label">New Password</label>
                     <input type="password" className="form-control" id="password" value={regInputs.password} onChange={e=>setregInputs({full_name:regInputs.full_name,email:regInputs.email,password:e.target.value})} required/>
                 </div>
-                <button type="button" className="btn btn-primary" onClick={registerUser} data-bs-dismiss='modal'>Submit</button>
+                <button type="button" className="btn btn-success" onClick={registerUser} data-bs-dismiss='modal'>Submit</button>
             </form>
         </div>
     )

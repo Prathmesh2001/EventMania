@@ -3,4 +3,13 @@
     html{
         font-size: 80%;
     }
+    .all-events{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .card{
+            width: 300px;
+        }
+    }
 }

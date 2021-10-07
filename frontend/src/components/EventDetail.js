@@ -24,11 +24,11 @@ function EventDetail() {
         return (
             <>
 
-                <div className="container">
+                <div className="my-container">
                     <Link className="btn btn-primary" to='/home'>Go Back</Link>
-                    <div className="card m-5">
+                    <div className="card my-5">
                         <div className="big-img-container">
-                            <img src={'http://127.0.0.1:8000/api' + theEvent.EventPhotoName} alt={theEvent.EventPhotoName} />
+                            <img src={'http://127.0.0.1:8000/api' + theEvent['EventPhotoName']} alt={theEvent.EventPhotoName} />
                         </div>
                         <div className="card-body">
                             <h5 className="card-title">{theEvent['EventName']}</h5>
