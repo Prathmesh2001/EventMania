@@ -53,6 +53,10 @@ export default function Navbar(props) {
           >
             Login
           </button>
+          
+          <Link className="btn btn-outline-success mx-2 text-success" to="/Profile">
+                User profile
+          </Link>
 
           {/* <!-- Modal --> */}
           <div
@@ -90,9 +94,6 @@ export default function Navbar(props) {
                   {entry === "LogIn" ? <LogIn /> : <Register />}
                 </div>
 
-                <Link className="btn btn-outline-success" to="/Profile">
-                  Login
-                </Link>
               </div>
             </div>
           </div>
