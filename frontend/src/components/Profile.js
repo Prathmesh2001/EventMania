@@ -55,39 +55,10 @@ function Profile(props) {
                 console.log(response.data)
             }
         )
-        // fetch(`http://127.0.0.1:8000/api/user/${props.u_id}`,{
-        //     method:'PUT',
-        //     headers:{
-        //         'Accept':'application/json',
-        //         'Content-Type':'application/json'
-        //     },
-        //     body:JSON.stringify({
-        //         user_id:props.u_id,
-        //         full_name:f_name,
-        //         email:u_email,
-        //         password:u_pass,
-        //         UserPhotoName:usr_img
-
-        //     })
-        // })
-
-        // let formfield = new FormData()
-        // formfield.append('user_id', props.u_id)
-        // formfield.append('full_name', f_name)
-        // formfield.append('email', u_email)
-        // formfield.append('password', u_pass)
-        // if(usr_img !== null){
-        //     formfield.append('UserPhotoName', usr_img, usr_img.name)
-        // }
-        // axios.put(`http://127.0.0.1:8000/api/user/${props.u_id}`,formfield)
-        // .then(response=>{
-        //     console.log(response.data);
-        // })
     }
 
     const handleFileSelected=(e)=>{
         e.preventDefault();
-        // setusrimg(e.target.files[0].name)
         
         let extension = e.target.files[0].name.split('.').pop();
         console.log(extension)

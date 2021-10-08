@@ -79,19 +79,6 @@ def UserFunc(request, id = -1):
                 return JsonResponse("does_not_exist", safe=False)
         else:
             return JsonResponse("No id provided", safe=False)
-        # json_data = request.body
-        # stream = io.BytesIO(json_data)
-        # user_data = JSONParser().parse(stream)
-        # print(user_data)
-        # id = user_data.get('id', None)
-        # print(id)
-        # # id = Event.objects.get(EventId = user_data['id'])
-        # if id is not None:
-        #     stu = User.objects.get(user_id=id)
-        #     user_serializer = UserSerializer(stu)
-        #     return JsonResponse(user_serializer.data, safe=False)
-            
-        # return JsonResponse("Id is None", safe=False)
     
     elif request.method=="POST":
         json_data=request.body
