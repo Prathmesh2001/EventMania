@@ -1,0 +1,21 @@
+@import 'variables';
+body{
+    background-color: #efefef;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a,a:visited,a:hover{
+    color: #ffffff;
+}
+
+.bg-dark0,
+.carousel,
+.my-container{
+    background-color: $primary;
+}
+
+
+@import 'home';
+@import 'footer';
+@import 'media_query';

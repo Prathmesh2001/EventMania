@@ -1,5 +1,5 @@
 from django.urls import path
-from django.conf.urls import url
+from django.conf.urls import include, url
 from api import views
 
 from django.conf.urls.static import static
@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'^user/([0-9]+)$', views.UserFunc),
     url(r'^user/SaveFile/([0-9]+)$', views.SaveFile),
     url(r'^event$', views.EventFunc),
+    path('retrieve/<str:email>', views.UserRetrieve),
     url(r'^event/([0-9]+)$', views.EventFunc),
 
     url(r'^event/SaveFile$', views.SaveFile),

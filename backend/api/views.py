@@ -1,13 +1,17 @@
+from rest_framework.serializers import Serializer
 from .serializers import *
-from api.models import User, Event
-from rest_framework.generics import ListAPIView,CreateAPIView,DestroyAPIView
-from django.shortcuts import render
+from .models import User, Event
+from rest_framework.renderers import JSONRenderer
+from django.http import HttpResponse
+from rest_framework.generics import ListAPIView,CreateAPIView,RetrieveAPIView
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 from django.http.response import JsonResponse
+from rest_framework import viewsets
 import io
 from django.core.files.storage import default_storage
-# Create your views here. 
+
+# Create your views here.
 
 class UserList(ListAPIView):
     queryset=User.objects.all()
@@ -17,20 +21,35 @@ class UserCreate(CreateAPIView):
     queryset=User.objects.all()
     serializer_class=UserSerializer
 
+def UserRetrieve(request,email):
+    user=User.objects.filter(email=email).first()
+    if user!=None:
+        serializer=UserSerializer(user)
+        json_data=JSONRenderer().render(serializer.data)
+        return HttpResponse(json_data,content_type='application/json')
+    else:
+        invalid={'msg':'invalid_user'}
+        json_data=JSONRenderer().render(invalid)
+        return HttpResponse(json_data,content_type='application/json')
+
+
 @csrf_exempt
-def EventFunc(request, id=-1):
+def EventFunc(request, id=-1,):
+
     if request.method=='GET':
-        if(id!=-1):
-            try:
-                events = Event.objects.get(EventId=id)
-                event_serializer = EventSerializer(events)
-                return JsonResponse(event_serializer.data, safe=False)
-            except:
-                return JsonResponse("does_not_exist", safe=False)
-        else:
+        #show all
+        if(int(id) < 0):
             events = Event.objects.all()
             event_serializer = EventSerializer(events, many=True)
             return JsonResponse(event_serializer.data, safe=False)
+        #show for specific id
+        else:
+            try:
+                event = Event.objects.get(EventId = id)
+                event_serializer = EventSerializer(event)
+                return JsonResponse(event_serializer.data, safe=False)
+            except:
+                return JsonResponse("404", safe=False)
 
     elif request.method == 'POST':
         event_data = JSONParser().parse(request)
