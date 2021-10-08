@@ -21,7 +21,7 @@ export default function Navbar(props) {
               </ul>
              
                 
-              <Link className="btn btn-outline-success" to="/">Login</Link>
+              <Link className="btn btn-outline-success" to="/Profile">Login</Link>
               
             </div>
           </div>
