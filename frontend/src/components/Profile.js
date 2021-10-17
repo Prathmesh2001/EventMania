@@ -4,7 +4,7 @@ import imgg from "./images/default_user.png";
 // import b_cam from './images/black_camera.svg'
 // import w_cam from './images/white_camera.svg'
 import edit_b from "./images/edit_b.svg";
-import axios from 'axios'
+// import axios from 'axios'
 // import Edit_prfl from "./Edit_prfl";
 
 function Profile(props) {
