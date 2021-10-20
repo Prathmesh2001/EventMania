@@ -1,32 +1,50 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { useHistory } from "react-router-dom";
+import PropTypes from 'prop-types'
 
-export default function Register() {
+
+export default function Register(props) {
+
+    const history = useHistory();
+    if(!props.cred_dict['authflag']){
+        history.push(``)
+    }
+
     const [regInputs, setregInputs] = useState({
         full_name: '',
         email: '',
         password: '',
+        UserPhotoName: ''
     })
 
-    const history = useHistory();
 
-    const registerUser=()=>{
+    const registerUser=  ()=>{
         if(regInputs.full_name!==''&&regInputs.email!==''&&regInputs.password!=='')
         {
             axios.get(`http://127.0.0.1:8000/api/retrieve/${regInputs.email}`)
             .then((res) => {
-                if (res.data['msg'] === 'invalid_user') {
+                if (res.data['msg'] === 'email available') {
                     axios.post('http://127.0.0.1:8000/api/create/',regInputs)
-                    .then((res)=>{
+                    .then( async (resp) =>{
+                        
+                        var cred = {};
+                        cred['email'] = regInputs.email;
+                        cred['password'] = regInputs.password;
+                        console.log(cred)
+                        let r_data = await props.handle_login(cred)
+                        console.log(r_data)
+
+                        let path = `home`;
                         setregInputs({
                             full_name:'',
                             email:'',
-                            password:''
+                            password:'',
+                            UserPhotoName: ''
                         })
+                        history.push(path);
                     })
-                    let path = `home`;
-                    history.push(path);
+                    
                 }
                 else {
                     console.log("already a user")
@@ -40,7 +58,8 @@ export default function Register() {
         setregInputs({
             full_name:'',
             email:'',
-            password:''
+            password:'',
+            UserPhotoName: ''
         })
         
     }
@@ -56,6 +75,7 @@ export default function Register() {
                     <label htmlFor="email" className="form-label">Email address</label>
                     <input type="email" className="form-control" id="email" value={regInputs.email} onChange={e=>setregInputs({full_name:regInputs.full_name,email:e.target.value,password:regInputs.password})} required/>
                 </div>
+                
                 <div className="mb-3">
                     <label htmlFor="password" className="form-label">New Password</label>
                     <input type="password" className="form-control" id="password" value={regInputs.password} onChange={e=>setregInputs({full_name:regInputs.full_name,email:regInputs.email,password:e.target.value})} required/>
@@ -64,4 +84,9 @@ export default function Register() {
             </form>
         </div>
     )
+}
+
+Register.prototype = {
+    cred_dict: PropTypes.object.isRequired,
+    handle_login: PropTypes.func.isRequired,
 }

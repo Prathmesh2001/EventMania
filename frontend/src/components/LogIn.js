@@ -1,40 +1,31 @@
 import React, { useState } from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 import { useHistory } from "react-router-dom";
+import PropTypes from 'prop-types'
 
-export default function LogIn() {
-
-    const [signInfo, setsignInfo] = useState({
-        email: '',
-        password: '',
-    })
+export default function LogIn(props) {
 
     const history = useHistory();
+    if(!props.cred_dict['authflag']){
+        history.push(``)
+    }
 
-    const checkuser = () => {
-        if (signInfo.email !== '' && signInfo.password !== '') {
-            axios.get(`http://127.0.0.1:8000/api/retrieve/${signInfo.email}`)
-            .then((res) => {
-                if (res.data['msg'] !== 'invalid_user') {
-                    if (signInfo.password === res.data.password) {
-                        let path = `home`;
-                        history.push(path);
-                    }
-                    else {
-                        let path = '';
-                        history.push(path);
-                    }
-                }
-                else {
-                    let path = '';
-                    history.push(path);
-                }
-            })
-        }
-        setsignInfo({
-            email: '',
-            password: '',
-        })
+    const [email, setemail] = useState("")
+    const [password, setpass] = useState("")
+    // const [signInfo, setsignInfo] = useState({
+    //     email: '',
+    //     password: '',
+    // })
+
+
+    const checkuser = async () => {
+        var cred = {};
+        cred['email'] = email;
+        cred['password'] = password;
+        console.log(cred)
+        let r_data = await props.handle_login(cred)
+        console.log(r_data)
+        return history.push(`home`);
     }
 
     return (
@@ -42,14 +33,20 @@ export default function LogIn() {
             <form>
                 <div className="mb-3">
                     <label htmlFor="signinemail" className="form-label">Email address</label>
-                    <input type="email" className="form-control" id="signinemail" value={signInfo.email} onChange={e => setsignInfo({ email: e.target.value, password: signInfo.password })} required/>
+                    <input type="email" className="form-control" id="signinemail" value={email} onChange={e => setemail(e.target.value)} required/>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="signinpassword" className="form-label">Password</label>
-                    <input type="password" className="form-control" id="signinpassword" value={signInfo.password} onChange={e => setsignInfo({ email: signInfo.email, password: e.target.value })} required/>
+                    <input type="password" className="form-control" id="signinpassword" value={password} onChange={e => setpass(e.target.value)} required/>
                 </div>
-                <button type="button" className="btn btn-success" onClick={checkuser} data-bs-dismiss='modal'>Submit</button>
+                <button type="button" className="btn btn-success" onClick={checkuser} data-bs-dismiss="modal">Submit</button>
             </form>
         </div>
     )
 }
+
+LogIn.prototype = {
+    cred_dict: PropTypes.object.isRequired,
+    handle_login: PropTypes.func.isRequired,
+    
+};
