@@ -6,8 +6,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  useHistory,
-  Redirect,
+  // useHistory,
+  // Redirect,
 
 } from "react-router-dom";
 import Navbar from './components/Navbar';
@@ -23,7 +23,7 @@ const jwt = require('jsonwebtoken');
 function App() {
   // let u_id = 4; 
 
-  const history = useHistory();
+  // const history = useHistory();
   const [user_auth, setuserauth] = useState({
     authflag: false,
     u_id: 4
