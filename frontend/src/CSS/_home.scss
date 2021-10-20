@@ -39,15 +39,21 @@
 
 
 .my-container{
+    width: 70rem;
     padding: 2rem 5rem;
     background-color: #efefef;
     color: $primary;
     min-height: 30rem;
 }
-.my-container h3{
+.trending-section{
+    background-color: #efefef;
+    padding: 2rem;
+    h3{
+    color: #121212;
     text-transform: uppercase;
     border-bottom: 1px solid $grey;
     font-family:Georgia, 'Times New Roman', Times, serif;
+    }
 }
 
 .img-container{
@@ -65,15 +71,25 @@
     }
 }
 
-.card{
+.event-card .card{
     position: relative;
     display: block;
+    box-shadow: 0 0 10px 1px #ddd;
+    transition: 0.2s all ;
+    a,a:visited{
+        text-decoration: none;
+
+        color: #121212;
+    }
     img{
         width: 100%;
         object-fit: cover;
         object-position: bottom;
         height: 100%;
     }
+}
+.event-card .card:hover{
+    box-shadow: 0 0 20px 5px #bbb;
 }
 
 

@@ -24,7 +24,7 @@ function Home() {
 
                 <Carousel/>
                 
-                <div className="my-container text-center my-5">
+                <div className="trending-section text-center my-5">
                     <h3>Trending</h3>
                     <div className="all-events">
                         {

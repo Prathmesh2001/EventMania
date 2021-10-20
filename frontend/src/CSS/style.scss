@@ -15,7 +15,18 @@ a,a:visited,a:hover{
     background-color: $primary;
 }
 
+button{
+    margin: 10px;
+}
+
+.center-object{
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
 
 @import 'home';
 @import 'footer';
+@import 'payment';
 @import 'media_query';
+@import 'userProfile';

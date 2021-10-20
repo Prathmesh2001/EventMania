@@ -1,0 +1,72 @@
+
+.payment-section{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.payment-section .horizontal-card{
+    display: flex;
+    flex-flow: row;
+    img{
+        width: 200px;
+        height: 150px;
+    }
+}
+
+.quantity input{
+    width: 2rem;
+    margin: 0 1rem;
+}
+
+.payment-section .card{
+    margin: 2rem 0;
+    width: 35rem;
+    .info, .sensitive{
+        input, select{
+            border: 1px solid #ccc;
+            border-radius: 15px;        
+            margin: 1rem 0;    
+
+        }
+        label{
+            margin-right: 1rem;
+        }
+    }
+    .info{
+        // background-color: #fe3454;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        input{
+            flex-basis: 70%;
+            padding: 0.2rem 1rem;
+        }
+    }
+    select{
+        padding: 0.2rem;
+    }
+
+    .sensitive{
+        display: flex;
+        justify-content: space-around;
+       
+        .left, .right{
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            input{
+                width: 5rem;
+                padding: 0.2rem 1rem;
+            }
+        }
+    }
+
+}
+
+.paybtn{
+    margin: 1rem 0;
+}
+

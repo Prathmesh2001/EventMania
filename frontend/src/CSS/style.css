@@ -16,6 +16,22 @@ a, a:visited, a:hover {
   background-color: #333446;
 }
 
+button {
+  margin: 10px;
+}
+
+.center-object {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .home-container {
   min-height: 160vh;
   background-image: url("../texture-1.png");
@@ -57,13 +73,20 @@ a, a:visited, a:hover {
 }
 
 .my-container {
+  width: 70rem;
   padding: 2rem 5rem;
   background-color: #efefef;
   color: #333446;
   min-height: 30rem;
 }
 
-.my-container h3 {
+.trending-section {
+  background-color: #efefef;
+  padding: 2rem;
+}
+
+.trending-section h3 {
+  color: #121212;
   text-transform: uppercase;
   border-bottom: 1px solid #7d7d7d;
   font-family: Georgia, 'Times New Roman', Times, serif;
@@ -86,18 +109,32 @@ a, a:visited, a:hover {
      object-fit: cover;
 }
 
-.card {
+.event-card .card {
   position: relative;
   display: block;
+  -webkit-box-shadow: 0 0 10px 1px #ddd;
+          box-shadow: 0 0 10px 1px #ddd;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
 }
 
-.card img {
+.event-card .card a, .event-card .card a:visited {
+  text-decoration: none;
+  color: #121212;
+}
+
+.event-card .card img {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: bottom;
      object-position: bottom;
   height: 100%;
+}
+
+.event-card .card:hover {
+  -webkit-box-shadow: 0 0 20px 5px #bbb;
+          box-shadow: 0 0 20px 5px #bbb;
 }
 
 .card-body {
@@ -176,6 +213,108 @@ footer {
           transform: scale(2);
 }
 
+.payment-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.payment-section .horizontal-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+}
+
+.payment-section .horizontal-card img {
+  width: 200px;
+  height: 150px;
+}
+
+.quantity input {
+  width: 2rem;
+  margin: 0 1rem;
+}
+
+.payment-section .card {
+  margin: 2rem 0;
+  width: 35rem;
+}
+
+.payment-section .card .info input, .payment-section .card .info select, .payment-section .card .sensitive input, .payment-section .card .sensitive select {
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  margin: 1rem 0;
+}
+
+.payment-section .card .info label, .payment-section .card .sensitive label {
+  margin-right: 1rem;
+}
+
+.payment-section .card .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.payment-section .card .info input {
+  -ms-flex-preferred-size: 70%;
+      flex-basis: 70%;
+  padding: 0.2rem 1rem;
+}
+
+.payment-section .card select {
+  padding: 0.2rem;
+}
+
+.payment-section .card .sensitive {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.payment-section .card .sensitive .left, .payment-section .card .sensitive .right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.payment-section .card .sensitive .left input, .payment-section .card .sensitive .right input {
+  width: 5rem;
+  padding: 0.2rem 1rem;
+}
+
+.paybtn {
+  margin: 1rem 0;
+}
+
 @media (max-width: 500px) {
   html {
     font-size: 80%;
@@ -198,5 +337,75 @@ footer {
   .all-events .card {
     width: 300px;
   }
+}
+
+.user-page .container {
+  width: 70rem;
+}
+
+.profile-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.edit-and-pic {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.profile-pic {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+.profile-pic img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: inherit;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #333446;
+  border-radius: 10px;
+}
+
+table thead {
+  background-color: #333446;
+  color: #efefef;
+}
+
+td, tr {
+  border: 1px solid #aaa;
+  padding: 8px 12px;
+}
+
+table tr:nth-child(even) {
+  background-color: #cdcdcd;
 }
 /*# sourceMappingURL=style.css.map */

@@ -23,6 +23,7 @@ function EventDetail() {
     if (theEvent !== '404') {
         return (
             <>
+                <div className="center-object">
 
                 <div className="my-container">
                     <Link className="btn btn-primary" to='/home'>Go Back</Link>
@@ -33,10 +34,12 @@ function EventDetail() {
                         <div className="card-body">
                             <h5 className="card-title">{theEvent['EventName']}</h5>
                             <p className="card-text">{theEvent['EventDescription']}</p>
-                            <p className="card-text"><small className="text-muted">{theEvent['DateOfEvent']} | {theEvent['EventVenue']} | {theEvent['EventCost']}</small></p>
-                            <button className="btn btn-primary">Checkout</button>
+                            <p className="card-text"><small className="text-muted">{theEvent['DateOfEvent']} | {theEvent['EventVenue']}</small></p>
+                            <p>Cost per person: INR {theEvent['EventCost']}</p>
+                            <Link to={'/'+theEvent['EventId']+'/payment'} className="btn btn-primary">Checkout</Link>
                         </div>
                     </div>
+                </div>
                 </div>
             </>
         )

@@ -8,7 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 from django.http.response import JsonResponse
 from rest_framework import viewsets
-
+import io
 from django.core.files.storage import default_storage
 
 # Create your views here.
@@ -57,7 +57,8 @@ def EventFunc(request, id=-1,):
         if events_serializer.is_valid():
             events_serializer.save()
             return JsonResponse("Added Successfully", safe=False)
-        return JsonResponse("Add fail", safe=False)
+        s = "Add fail"+str(events_serializer.data)
+        return JsonResponse(s, safe=False)
 
     elif request.method == 'PUT':
         event_data = JSONParser().parse(request)
@@ -76,8 +77,51 @@ def EventFunc(request, id=-1,):
 
 
 @csrf_exempt
-def SaveFile(request):
+def SaveFile(request, id = -1):
     file = request.FILES['myFile']
-    file_name = default_storage.save(file.name, file)
+    # print(file.name)
+    fname = "user"+str(id)+"."+file.name.split(".")[1]
+    if(default_storage.exists(fname)):
+        default_storage.delete(fname)
+    file_name = default_storage.save(fname, file)
 
     return JsonResponse(file_name, safe=False)
+
+@csrf_exempt
+def UserFunc(request, id = -1):
+    if request.method == "GET":
+        if id!=-1:
+            try:
+                stu = User.objects.get(user_id=id)
+                user_serializer = UserSerializer(stu)
+                return JsonResponse(user_serializer.data, safe=False)
+            except:
+                return JsonResponse("does_not_exist", safe=False)
+        else:
+            return JsonResponse("No id provided", safe=False)
+    
+    elif request.method=="POST":
+        json_data=request.body
+        stream=io.BytesIO(json_data)
+        user_data=JSONParser().parse(stream)
+        user_serializer=UserSerializer(data=user_data)
+        if user_serializer.is_valid():
+            user_serializer.save()
+            return JsonResponse("Data Posted", safe=False)
+        return JsonResponse(user_serializer.errors, safe=False)     
+        
+    elif request.method=="PUT":
+        print("came here")
+        # json_data=request.body
+        # stream=io.BytesIO(json_data)
+        user_data=JSONParser().parse(request)
+        # id=user_data.get('id')
+        stu=User.objects.get(user_id=id)
+        print(id, stu)
+        user_serializer=UserSerializer(stu,data=user_data,partial=True)
+        # print(user_serializer.data())
+        if user_serializer.is_valid():
+            print("valid")
+            user_serializer.save()
+            return JsonResponse("Data Updated", safe=False)
+        return JsonResponse("problem bro", safe=False)   

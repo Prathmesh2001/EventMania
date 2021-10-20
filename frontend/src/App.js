@@ -9,11 +9,14 @@ import {
 import Navbar from './components/Navbar';
 import About from './components/About';
 import Home from './components/Home';
+import Profile from './components/Profile';
 import Footer from './components/Footer';
 import EventDetail from './components/EventDetail';
+import Payment from './components/Payment';
 
 
 function App() {
+  let u_id = 8; 
   return (
     <>
       <Router>
@@ -26,8 +29,14 @@ function App() {
             <Route exact path = "/about">
               <About/>
             </Route>
+            <Route exact path = "/profile">
+              <Profile u_id = {u_id}/>
+            </Route>
             <Route exact path = "/:id">
               <EventDetail />
+            </Route>
+            <Route exact path = "/:id/payment">
+              <Payment/>
             </Route>
             <Route >404</Route>
           </Switch>
