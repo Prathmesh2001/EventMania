@@ -14,6 +14,27 @@ export default function Navbar(props) {
     setentry("Register");
   };
 
+  const logged_out_nav = (
+    <button
+      className="btn btn-outline-success"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+    >
+      Login
+    </button>
+  );
+
+  const logged_in_nav = (
+    <>
+      <Link className="btn btn-outline-success mx-2 text-success" to="/Profile">
+            User profile
+      </Link>
+      <li className="btn btn-outline-danger mx-2 text-light" onClick = {props.handle_logout}>
+        logout
+      </li>
+    </>
+  );
+
   return (
     <nav className="px-5 navbar navbar-expand-lg navbar-dark bg-dark0">
       <div className="container-fluid">
@@ -45,8 +66,11 @@ export default function Navbar(props) {
             </li>
           </ul>
 
-          {/* <!-- Button trigger modal --> */}
-          <button
+          
+          <div>
+            {props.cred_dict['authflag']?logged_in_nav:logged_out_nav}
+          </div>
+          {/* <button
             className="btn btn-outline-success"
             data-bs-toggle="modal"
             data-bs-target="#exampleModal"
@@ -57,6 +81,7 @@ export default function Navbar(props) {
           <Link className="btn btn-outline-success mx-2 text-success" to="/Profile">
                 User profile
           </Link>
+          </Link> */}
 
           {/* <!-- Modal --> */}
           <div
@@ -90,8 +115,9 @@ export default function Navbar(props) {
                     aria-label="Close"
                   />
                 </div>
+                
                 <div className="modal-body p-4">
-                  {entry === "LogIn" ? <LogIn /> : <Register />}
+                  {entry === "LogIn" ? <LogIn handle_login = {props.handle_login} cred_dict = {props.cred_dict}/> : <Register handle_login = {props.handle_login} cred_dict = {props.cred_dict}/>}
                 </div>
 
               </div>
@@ -104,7 +130,9 @@ export default function Navbar(props) {
 }
 
 Navbar.prototype = {
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  handle_login: PropTypes.func.isRequired,
+  cred_dict: PropTypes.object.isRequired
 };
 
 Navbar.defaultProps = {

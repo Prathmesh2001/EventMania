@@ -10,7 +10,9 @@ from django.http.response import JsonResponse
 from rest_framework import viewsets
 import io
 from django.core.files.storage import default_storage
-
+from rest_framework.decorators import api_view
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.decorators import permission_classes
 # Create your views here.
 
 class UserList(ListAPIView):
@@ -24,13 +26,11 @@ class UserCreate(CreateAPIView):
 def UserRetrieve(request,email):
     user=User.objects.filter(email=email).first()
     if user!=None:
-        serializer=UserSerializer(user)
-        json_data=JSONRenderer().render(serializer.data)
-        return HttpResponse(json_data,content_type='application/json')
+        # serializer=UserSerializer(user)
+        return JsonResponse({"msg":"email taken"}, safe=False)
     else:
-        invalid={'msg':'invalid_user'}
-        json_data=JSONRenderer().render(invalid)
-        return HttpResponse(json_data,content_type='application/json')
+        return JsonResponse({"msg":"email available"}, safe=False)
+        
 
 
 @csrf_exempt
@@ -74,8 +74,6 @@ def EventFunc(request, id=-1,):
         event.delete()
         return JsonResponse("delete success", safe=False)
 
-
-
 @csrf_exempt
 def SaveFile(request, id = -1):
     file = request.FILES['myFile']
@@ -88,11 +86,45 @@ def SaveFile(request, id = -1):
     return JsonResponse(file_name, safe=False)
 
 @csrf_exempt
+def SaveFile_u(request, id = -1):
+    file = request.FILES['myFile']
+    # print(file.name)
+    fname = "user"+str(id)+"."+file.name.split(".")[1]
+    if(default_storage.exists(fname)):
+        default_storage.delete(fname)
+        fname= "User"+str(id)+"."+file.name.split(".")[1]
+        
+    else:
+        fname = "User"+str(id)+"."+file.name.split(".")[1]
+        if(default_storage.exists(fname)):
+            default_storage.delete(fname)
+            fname = "user"+str(id)+"."+file.name.split(".")[1]
+    file_name = default_storage.save(fname, file)
+
+    return JsonResponse(file_name, safe=False)
+
+@csrf_exempt
+def user_create(request):
+    if request.method=="POST":
+        # json_data=request.body
+        # stream=io.BytesIO(json_data)
+        user_data=JSONParser().parse(request)
+        user_serializer=UserSerializer(data=user_data)
+        print("chk1")
+        if user_serializer.is_valid():
+            user_serializer.save()
+            print("chk2")
+            return JsonResponse("Data Posted", safe=False)
+        return JsonResponse(user_serializer.errors, safe=False) 
+
+@csrf_exempt
+@api_view(['GET', 'POST', "PUT", "PATCH", "DELETE"])
+@permission_classes([IsAuthenticated])
 def UserFunc(request, id = -1):
     if request.method == "GET":
         if id!=-1:
             try:
-                stu = User.objects.get(user_id=id)
+                stu = User.objects.get(id=id)
                 user_serializer = UserSerializer(stu)
                 return JsonResponse(user_serializer.data, safe=False)
             except:
@@ -116,12 +148,15 @@ def UserFunc(request, id = -1):
         # stream=io.BytesIO(json_data)
         user_data=JSONParser().parse(request)
         # id=user_data.get('id')
-        stu=User.objects.get(user_id=id)
+        stu=User.objects.get(id=id)
         print(id, stu)
         user_serializer=UserSerializer(stu,data=user_data,partial=True)
-        # print(user_serializer.data())
+        print(user_serializer)
+
         if user_serializer.is_valid():
             print("valid")
             user_serializer.save()
-            return JsonResponse("Data Updated", safe=False)
+            stu = User.objects.get(id=id)
+            user_serializer = UserSerializer(stu)
+            return JsonResponse(user_serializer.data, safe=False)
         return JsonResponse("problem bro", safe=False)   

@@ -4,65 +4,92 @@ import imgg from "./images/default_user.png";
 // import b_cam from './images/black_camera.svg'
 // import w_cam from './images/white_camera.svg'
 // import edit_b from "./images/edit_b.svg";
+import PropTypes from 'prop-types'
+import { Redirect } from "react-router-dom";
 // import axios from 'axios'
 // import Edit_prfl from "./Edit_prfl";
 
 function Profile(props) {
 
-    console.log(`http://127.0.0.1:8000/api/user/${props.u_id}`)
+    
+    
+    
+    props.handle_token()
+    
     const [ussr, setussr] = useState([])
-
+    const [ flag, setflag ] = useState(true)
     const [f_name, setf_name] = useState("")
     const [u_email, setu_email] = useState("")
     const [u_pass, setu_pass] = useState("")
     const [usr_img, setusrimg] = useState("")
+    
 
     useEffect(() => {
-        fetch(`http://127.0.0.1:8000/api/user/${props.u_id}`, {
-            method: 'GET',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            }
-
-        })
+        if(!localStorage.getItem('access_t')){
+            return;
+        }
+        const fun = async ()=>{
+            await props.handle_token();
+            console.log("hello bro")
+            fetch(`http://127.0.0.1:8000/api/user/${props.cred_dict['u_id']}`, {
+                method: 'GET',
+                headers: {
+                    'Accept':'application/json',
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + localStorage.getItem('access_t')
+                }
+                
+            })
             .then(resp => resp.json()).then(resp => setussr(resp)).then(error => console.log(error))
-    }, [props.u_id])
-
-    const handle_submit = () => {
+        }
+        fun()
+    }, [flag, props])
+    
+    
+    if(!localStorage.getItem('access_t')){
+        return <Redirect to = "/"/>
+    }
+    
+    
+    const handle_submit= async ()=>{
+        await props.handle_token()
         console.log("hello world")
-        console.log(props.u_id)
+        console.log(props.cred_dict['u_id'])
         console.log(f_name)
         console.log(u_email)
         console.log(u_pass)
         console.log(usr_img)
         var dict = {};
-        dict['user_id'] = props.u_id
-        if (f_name !== "") dict['full_name'] = f_name
-        if (u_email !== "") dict['email'] = u_email
-        if (u_pass !== "") dict['password'] = u_pass
-        if (usr_img !== "") dict['UserPhotoName'] = usr_img
-        fetch(`http://127.0.0.1:8000/api/user/${props.u_id}`, {
-            method: 'PUT',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
+        dict['id'] = props.cred_dict['u_id']
+        if(f_name!=="") dict['full_name'] = f_name
+        if(u_email!=="") dict['email'] = u_email
+        if(u_pass!=="") dict['password'] = u_pass
+        if(usr_img!=="") dict['UserPhotoName'] = usr_img
+        fetch(`http://127.0.0.1:8000/api/user/${props.cred_dict['u_id']}`,{
+            method:'PUT',
+            headers:{
+                'Accept':'application/json',
+                'Content-Type':'application/json',
+                'Authorization': 'Bearer ' + localStorage.getItem('access_t')
             },
-            body: JSON.stringify(dict)
+            
+            body:JSON.stringify(dict)
         })
-            .then(
-                response => {
-                    console.log(response.data)
-                }
-            )
+        .then(resp => resp.json())
+        .then(
+            resp=>{
+                console.log(resp)
+                setflag((flag === true)?false:true)
+            }
+        ).then(error => console.log(error))
     }
 
-    const handleFileSelected = (e) => {
+    const handleFileSelected=(e)=>{
         e.preventDefault();
-
+        
         let extension = e.target.files[0].name.split('.').pop();
         console.log(extension)
-        setusrimg("user" + props.u_id + "." + extension)
+        setusrimg("user"+props.cred_dict['u_id']+"."+extension)
         const formData = new FormData();
         formData.append(
             "myFile",
@@ -70,9 +97,9 @@ function Profile(props) {
             e.target.files[0].name
         );
 
-        fetch(`http://127.0.0.1:8000/api/user/SaveFile/${props.u_id}`, {
-            method: 'POST',
-            body: formData
+        fetch(`http://127.0.0.1:8000/api/user/SaveFile/${props.cred_dict['u_id']}`,{
+            method:'POST',
+            body:formData
         })
 
     }
@@ -96,7 +123,7 @@ function Profile(props) {
                         </button>
                     </div>
                     <div>
-                        <h1 className="font-monospace fw-normal">{ussr.full_name ? ussr.full_name : "Anonymous" + props.u_id}</h1>
+                        <h1 className="font-monospace fw-normal">{ussr.full_name ? ussr.full_name : "Anonymous" + props.cred_dict['u_id']}</h1>
 
                         <div className="row">
                             <div className="col-sm-4">6 Events</div>
@@ -128,7 +155,7 @@ function Profile(props) {
                             <form>
                                 <div className="mb-3">
                                     <label htmlFor="inputname3" className="form-label">Full Name</label>
-                                    <input type="text" placeholder={ussr.full_name ? ussr.full_name : "Anonymous" + props.u_id} value={f_name} onChange={e => setf_name(e.target.value)} className="form-control" id="inputname3" />
+                                    <input type="text" placeholder={ussr.full_name ? ussr.full_name : "Anonymous" + props.cred_dict['u_id']} value={f_name} onChange={e => setf_name(e.target.value)} className="form-control" id="inputname3" />
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="inputEmail3" className="form-label">Email</label>
@@ -143,7 +170,7 @@ function Profile(props) {
                                     <input type="password" value={u_pass} onChange={e => setu_pass(e.target.value)} className="form-control" id="inputPassword1" />
                                 </div>
 
-                                <button type="submit" className="btn btn-primary" onClick={handle_submit}>Update Changes</button>
+                                <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick = {handle_submit}>Update Changes</button>
                             </form>
                         </div>
                         <div className="modal-footer">
@@ -199,3 +226,9 @@ function Profile(props) {
 }
 // https://source.unsplash.com/200x200/?face
 export default Profile;
+        
+
+Profile.prototype = {
+    cred_dict : PropTypes.object.isRequired,
+    handle_token : PropTypes.func.isRequired,
+}
