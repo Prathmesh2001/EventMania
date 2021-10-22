@@ -15,6 +15,6 @@ class Event(models.Model):
     DateOfEvent = models.DateTimeField()
     EventVenue = models.CharField(max_length=200)
     EventCost = models.IntegerField()
-    EventPhotoName = models.ImageField()
+    EventPhotoName = models.CharField(max_length=50,default='')
     def __str__(self):
         return self.EventName

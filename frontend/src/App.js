@@ -10,6 +10,7 @@ import Navbar from './components/Navbar';
 import About from './components/About';
 import Home from './components/Home';
 import Footer from './components/Footer';
+import AddEvent from './components/AddEvent';
 
 
 function App() {
@@ -24,6 +25,9 @@ function App() {
             </Route>
             <Route exact path = "/about">
               <About/>
+            </Route>
+            <Route exact path = "/addevent">
+              <AddEvent/>
             </Route>
           </Switch>
         </div>

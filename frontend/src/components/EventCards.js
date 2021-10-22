@@ -1,12 +1,12 @@
 import React from 'react'
 
 function EventCards(props) {
-
+    console.log(props.photoName)
     return (
         <>
                 <div className="card m-5">
                         <div className="img-container">
-                            <img src={'http://127.0.0.1:8000/api'+props.photoName} alt={props.photoName} />
+                            <img src={'http://127.0.0.1:8000/api/media/'+props.photoName} alt={props.photoName} />
                         </div>
                             <div className="card-body">
                                 <h5 className="card-title">{props.name}</h5>

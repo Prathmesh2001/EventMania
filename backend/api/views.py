@@ -7,6 +7,7 @@ from rest_framework.generics import ListAPIView,CreateAPIView,RetrieveAPIView
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
 from django.http.response import JsonResponse
+import io
 
 from django.core.files.storage import default_storage
 
@@ -40,7 +41,10 @@ def EventFunc(request, id=0):
         return JsonResponse(event_serializer.data, safe=False)
 
     elif request.method == 'POST':
-        event_data = JSONParser().parse(request)
+        json_data=request.body
+        stream=io.BytesIO(json_data)
+        event_data = JSONParser().parse(stream)
+        print(event_data)
         events_serializer = EventSerializer(data=event_data)
         if events_serializer.is_valid():
             events_serializer.save()
@@ -69,3 +73,4 @@ def SaveFile(request):
     file_name = default_storage.save(file.name, file)
 
     return JsonResponse(file_name, safe=False)
+    

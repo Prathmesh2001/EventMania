@@ -50,7 +50,7 @@ export default function Register() {
             <form>
                 <div className="mb-3">
                     <label htmlFor="fullname" className="form-label">Full name</label>
-                    <input type="text" className="form-control" id="fullname" value={regInputs.name} onChange={e=>setregInputs({full_name:e.target.value,email:regInputs.email,password:regInputs.password})} required/>
+                    <input type="text" className="form-control" id="fullname" value={regInputs.full_name} onChange={e=>setregInputs({full_name:e.target.value,email:regInputs.email,password:regInputs.password})} required/>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="email" className="form-label">Email address</label>

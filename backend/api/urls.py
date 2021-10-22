@@ -9,7 +9,7 @@ urlpatterns = [
     path('list/', views.UserList.as_view()),
     path('create/', views.UserCreate.as_view()),
     path('retrieve/<str:email>', views.UserRetrieve),
-    url(r'^event$', views.EventFunc),
+    url(r'^event/$', views.EventFunc),
     url(r'^event/([0-9]+)$', views.EventFunc),
 
     url(r'^event/SaveFile$', views.SaveFile),

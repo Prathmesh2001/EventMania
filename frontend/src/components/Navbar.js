@@ -25,14 +25,14 @@ export default function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to="/">Home</Link>
+              <Link className="nav-link active" aria-current="page" to="/home">Home</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/about">About</Link>
             </li>
           </ul>
 
-
+          <Link className="btn btn-primary mx-3" to="/addevent">Add event</Link>
           {/* <!-- Button trigger modal --> */}
           <button className="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal" >Login</button>
 
