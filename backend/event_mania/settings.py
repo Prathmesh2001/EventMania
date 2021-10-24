@@ -102,7 +102,7 @@ DATABASES = {
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': 'EventManiaDb',
+        'NAME': 'EventMania',
     }
 }
 

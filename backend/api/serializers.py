@@ -18,10 +18,10 @@ class UserSerializer(serializers.ModelSerializer):
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
-        fields = ('EventId', 
+        fields = ['EventId', 
                 'EventName',
                 'EventDescription',
                 'DateOfEvent',
                 'EventVenue',
                 'EventCost',
-                'EventPhotoName')
+                'EventPhotoName']
