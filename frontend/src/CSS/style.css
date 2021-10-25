@@ -139,6 +139,7 @@ button {
 
 .card-body {
   text-align: left;
+  padding: 1rem;
 }
 
 /* ########################## all events ############################## */
@@ -229,6 +230,15 @@ footer {
           align-items: center;
 }
 
+.payment-section .card {
+  width: 50vw;
+  border-top: 5px solid #3f9939;
+}
+
+.payment-section .card button {
+  margin: 0;
+}
+
 .payment-section .horizontal-card {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -237,82 +247,25 @@ footer {
   -webkit-box-direction: normal;
       -ms-flex-flow: row;
           flex-flow: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-.payment-section .horizontal-card img {
-  width: 200px;
-  height: 150px;
+.payment-section .horizontal-card .small-img, .payment-section .horizontal-card .card-body {
+  width: 20rem;
+  margin: 1rem 0;
+}
+
+.payment-section .horizontal-card .small-img img {
+  width: 100%;
 }
 
 .quantity input {
   width: 2rem;
   margin: 0 1rem;
-}
-
-.payment-section .card {
-  margin: 2rem 0;
-  width: 35rem;
-}
-
-.payment-section .card .info input, .payment-section .card .info select, .payment-section .card .sensitive input, .payment-section .card .sensitive select {
-  border: 1px solid #ccc;
-  border-radius: 15px;
-  margin: 1rem 0;
-}
-
-.payment-section .card .info label, .payment-section .card .sensitive label {
-  margin-right: 1rem;
-}
-
-.payment-section .card .info {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.payment-section .card .info input {
-  -ms-flex-preferred-size: 70%;
-      flex-basis: 70%;
-  padding: 0.2rem 1rem;
-}
-
-.payment-section .card select {
-  padding: 0.2rem;
-}
-
-.payment-section .card .sensitive {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-}
-
-.payment-section .card .sensitive .left, .payment-section .card .sensitive .right {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.payment-section .card .sensitive .left input, .payment-section .card .sensitive .right input {
-  width: 5rem;
-  padding: 0.2rem 1rem;
-}
-
-.paybtn {
-  margin: 1rem 0;
 }
 
 @media (max-width: 500px) {

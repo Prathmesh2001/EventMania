@@ -11,47 +11,78 @@ import { Redirect } from "react-router-dom";
 
 function Profile(props) {
 
-    
-    
-    
+
+
+
     props.handle_token()
-    
+
+    // ########## user details ############
     const [ussr, setussr] = useState([])
-    const [ flag, setflag ] = useState(true)
+    const [flag, setflag] = useState(true)
     const [f_name, setf_name] = useState("")
     const [u_email, setu_email] = useState("")
     const [u_pass, setu_pass] = useState("")
     const [usr_img, setusrimg] = useState("")
-    
 
+
+
+    // ########## event history ###########
+    const [myHistory, setHistory] = useState([])
+
+    const [myEvent, setEvent] = useState([])
+
+
+
+    // ###### data fetch ################
     useEffect(() => {
-        if(!localStorage.getItem('access_t')){
+        if (!localStorage.getItem('access_t')) {
             return;
         }
-        const fun = async ()=>{
+        const fun = async () => {
             await props.handle_token();
             console.log("hello bro")
             fetch(`http://127.0.0.1:8000/api/user/${props.cred_dict['u_id']}`, {
                 method: 'GET',
                 headers: {
-                    'Accept':'application/json',
+                    'Accept': 'application/json',
                     'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + localStorage.getItem('access_t')
                 }
-                
+
             })
-            .then(resp => resp.json()).then(resp => setussr(resp)).then(error => console.log(error))
+                .then(resp => resp.json()).then(resp => setussr(resp)).then(error => console.log(error))
+
+
+            // ######### history fetch ##########
+            fetch(`http://127.0.0.1:8000/api/${props.cred_dict['u_id']}/history`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            })
+                .then(resp => resp.json()).then(resp => setHistory(resp)).then(error => console.log(error))
+
+
+            // ######### events fetch ##########
+            fetch('http://127.0.0.1:8000/api/event', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            })
+                .then(resp => resp.json()).then(resp => setEvent(resp)).then(error => console.log(error))
+
         }
         fun()
     }, [flag, props])
-    
-    
-    if(!localStorage.getItem('access_t')){
-        return <Redirect to = "/"/>
+
+
+    if (!localStorage.getItem('access_t')) {
+        return <Redirect to="/" />
     }
-    
-    
-    const handle_submit= async ()=>{
+
+    // ########### function on edit profile ###########
+    const handle_submit = async () => {
         await props.handle_token()
         console.log("hello world")
         console.log(props.cred_dict['u_id'])
@@ -61,35 +92,37 @@ function Profile(props) {
         console.log(usr_img)
         var dict = {};
         dict['id'] = props.cred_dict['u_id']
-        if(f_name!=="") dict['full_name'] = f_name
-        if(u_email!=="") dict['email'] = u_email
-        if(u_pass!=="") dict['password'] = u_pass
-        if(usr_img!=="") dict['UserPhotoName'] = usr_img
-        fetch(`http://127.0.0.1:8000/api/user/${props.cred_dict['u_id']}`,{
-            method:'PUT',
-            headers:{
-                'Accept':'application/json',
-                'Content-Type':'application/json',
+        if (f_name !== "") dict['full_name'] = f_name
+        if (u_email !== "") dict['email'] = u_email
+        if (u_pass !== "") dict['password'] = u_pass
+        if (usr_img !== "") dict['UserPhotoName'] = usr_img
+        fetch(`http://127.0.0.1:8000/api/user/${props.cred_dict['u_id']}`, {
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + localStorage.getItem('access_t')
             },
-            
-            body:JSON.stringify(dict)
+
+            body: JSON.stringify(dict)
         })
-        .then(resp => resp.json())
-        .then(
-            resp=>{
-                console.log(resp)
-                setflag((flag === true)?false:true)
-            }
-        ).then(error => console.log(error))
+            .then(resp => resp.json())
+            .then(
+                resp => {
+                    console.log(resp)
+                    setflag((flag === true) ? false : true)
+                }
+            ).then(error => console.log(error))
     }
 
-    const handleFileSelected=(e)=>{
+
+    // ########### image file updating ###########
+    const handleFileSelected = (e) => {
         e.preventDefault();
-        
+
         let extension = e.target.files[0].name.split('.').pop();
         console.log(extension)
-        setusrimg("user"+props.cred_dict['u_id']+"."+extension)
+        setusrimg("user" + props.cred_dict['u_id'] + "." + extension)
         const formData = new FormData();
         formData.append(
             "myFile",
@@ -97,20 +130,18 @@ function Profile(props) {
             e.target.files[0].name
         );
 
-        fetch(`http://127.0.0.1:8000/api/user/SaveFile/${props.cred_dict['u_id']}`,{
-            method:'POST',
-            body:formData
+        fetch(`http://127.0.0.1:8000/api/user/SaveFile/${props.cred_dict['u_id']}`, {
+            method: 'POST',
+            body: formData
         })
 
     }
 
-    const TicketDetails = props.location
-    console.log("print",TicketDetails);
 
     return (
         <div className="user-page">
             <div className="container-fluid bg-secondary text-light pt-3">
-                {/* <div className="container bg-dark rounded-bottom w-75" style={{ height: "80%" }}> */}
+
                 <div className="container profile-container bg-dark mb-3 py-3">
                     <div className="edit-and-pic">
 
@@ -118,7 +149,6 @@ function Profile(props) {
                             <img src={ussr.UserPhotoName ? 'http://127.0.0.1:8000/api/media/' + ussr.UserPhotoName : imgg} alt="profile pic" />
                         </div>
                         <button type="button" className="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                            {/* <img src={edit_b} className="" alt="edit icon" /> */}
                             Edit Profile
                         </button>
                     </div>
@@ -126,7 +156,7 @@ function Profile(props) {
                         <h1 className="font-monospace fw-normal">{ussr.full_name ? ussr.full_name : "Anonymous" + props.cred_dict['u_id']}</h1>
 
                         <div className="row">
-                            <div className="col-sm-4">6 Events</div>
+                            <div className="col-sm-4">{myHistory.length} Events</div>
                         </div>
                     </div>
                 </div>
@@ -170,7 +200,7 @@ function Profile(props) {
                                     <input type="password" value={u_pass} onChange={e => setu_pass(e.target.value)} className="form-control" id="inputPassword1" />
                                 </div>
 
-                                <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick = {handle_submit}>Update Changes</button>
+                                <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={handle_submit}>Update Changes</button>
                             </form>
                         </div>
                         <div className="modal-footer">
@@ -189,34 +219,59 @@ function Profile(props) {
                             <td>Sr No</td>
                             <td>Event Name</td>
                             <td>Event Date</td>
-                            <td>Event Cost Paid</td>
+                            <td>Event Time</td>
+                            <td>Seats</td>
+                            <td>Cost Paid</td>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Stand Up</td>
-                            <td>1/1/2022</td>
-                            <td>1000 Rs</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Stand Up</td>
-                            <td>1/1/2022</td>
-                            <td>1000 Rs</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Stand Up</td>
-                            <td>1/1/2022</td>
-                            <td>1000 Rs</td>
-                        </tr>
-                        {/* <tr>
-                            <td>{props.location.state}</td>
-                            <td>{props.location.state}</td>
-                            <td>{props.location.state}</td>
-                            <td>{props.location.state}</td>
-                        </tr> */}
+
+                        {
+                            myHistory.map((oneElem, index) => {
+                                let eventName, totalCost, eventDate, eventTime;
+                                for (let i of Object.values(myEvent)) {
+                                    console.log(i, oneElem['EventId'])
+                                    if (i['EventId'] === oneElem['EventId']) {
+                                        console.log("Match")
+                                        eventName = i['EventName']
+                                        totalCost = (oneElem.Seats) * (i['EventCost'])
+                                        let dateObj = new Date(i['DateOfEvent'])
+                                        let date = dateObj.getDate()
+                                        let month = dateObj.getMonth()
+                                        let year = dateObj.getFullYear()
+                                        let hours = dateObj.getHours()
+                                        let minutes = dateObj.getMinutes()
+                                        let suffix;
+                                        if (hours >= 12) {
+                                            suffix = "P.M."
+                                            if (hours > 12) {
+                                                hours -= 12
+                                            }
+                                        }
+                                        else {
+                                            suffix = "A.M."
+                                            if (hours === 0) {
+                                                hours = 12
+                                            }
+                                        }
+
+                                        eventDate = date + "/" + month + "/" + year
+                                        eventTime =  hours + ":" + minutes + " " + suffix
+                                    }
+                                }
+                                return (
+                                    <tr key={oneElem.HistoryId}>
+                                        <td>{index + 1}</td>
+                                        <td>{eventName}</td>
+                                        <td>{eventDate}</td>
+                                        <td>{eventTime}</td>
+                                        <td>{oneElem.Seats}</td>
+                                        <td>{totalCost}</td>
+                                    </tr>
+                                )
+                            }
+                            )
+                        }
                     </tbody>
                 </table>
             </div>
@@ -226,9 +281,9 @@ function Profile(props) {
 }
 // https://source.unsplash.com/200x200/?face
 export default Profile;
-        
+
 
 Profile.prototype = {
-    cred_dict : PropTypes.object.isRequired,
-    handle_token : PropTypes.func.isRequired,
+    cred_dict: PropTypes.object.isRequired,
+    handle_token: PropTypes.func.isRequired,
 }

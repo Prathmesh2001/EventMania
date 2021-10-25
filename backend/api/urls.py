@@ -14,7 +14,7 @@ urlpatterns = [
     url(r'^event$', views.EventFunc),
     path('retrieve/<str:email>', views.UserRetrieve),
     url(r'^event/([0-9]+)$', views.EventFunc),
-
+    path("<int:user_id>/history", views.myHistory),
     url(r'^event/SaveFile$', views.SaveFile),
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

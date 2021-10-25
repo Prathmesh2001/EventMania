@@ -145,7 +145,7 @@ function App() {
               <About/>
             </Route>
             <Route exact path = "/:id/payment">
-              <Payment/>
+              <Payment cred_dict = {user_auth}/>
             </Route>
             <Route exact path = "/profile">
               <Profile cred_dict = {user_auth} handle_token = {handle_token}/>

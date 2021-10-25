@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models.base import Model
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
+# from djongo import models as mongo_models
 
 
 class UserAccountManager(BaseUserManager):
@@ -53,6 +54,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(default=False)
     UserPhotoName = models.CharField(max_length=200, null = True)
     objects = UserAccountManager()
+    # userHistory
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['full_name']
@@ -80,3 +82,9 @@ class Event(models.Model):
     EventPhotoName = models.CharField(max_length=300, blank=True, null=True)
     def __str__(self):
         return self.EventName
+
+class History(models.Model):
+    HistoryId = models.AutoField(primary_key=True)
+    User = models.ForeignKey(User, on_delete=models.CASCADE)
+    EventId = models.IntegerField()
+    Seats = models.IntegerField(default=1)

@@ -160,3 +160,24 @@ def UserFunc(request, id = -1):
             user_serializer = UserSerializer(stu)
             return JsonResponse(user_serializer.data, safe=False)
         return JsonResponse("problem bro", safe=False)   
+
+@csrf_exempt
+def myHistory(request, user_id):
+    if (request.method=="GET"):
+        # return JsonResponse("History")
+        hist = History.objects.filter(User=user_id)
+        hist_serializer = HistorySerializer(hist, many=True)
+
+        return JsonResponse(hist_serializer.data, safe=False)
+
+    elif (request.method == "POST"):
+        print("post received to backend")
+        hist = JSONParser().parse(request)
+        hist_serializer = HistorySerializer(data=hist)
+        print(hist_serializer)
+        if hist_serializer.is_valid():
+            hist_serializer.save()
+            return JsonResponse("Added Successfully", safe=False)
+        return JsonResponse("Added Fail", safe=False)
+
+    return HttpResponse("Not GET or Post")

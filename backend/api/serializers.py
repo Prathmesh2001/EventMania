@@ -25,3 +25,12 @@ class EventSerializer(serializers.ModelSerializer):
                 'EventVenue',
                 'EventCost',
                 'EventPhotoName']
+
+class HistorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = History
+        fields = ['HistoryId', 
+                'User',
+                'EventId',
+                'Seats',
+                ]
