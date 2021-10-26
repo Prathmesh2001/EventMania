@@ -52,7 +52,10 @@ def EventFunc(request, id=-1,):
                 return JsonResponse("404", safe=False)
 
     elif request.method == 'POST':
-        event_data = JSONParser().parse(request)
+        json_data=request.body
+        stream=io.BytesIO(json_data)
+        event_data = JSONParser().parse(stream)
+        print(event_data)
         events_serializer = EventSerializer(data=event_data)
         if events_serializer.is_valid():
             events_serializer.save()
@@ -75,13 +78,9 @@ def EventFunc(request, id=-1,):
         return JsonResponse("delete success", safe=False)
 
 @csrf_exempt
-def SaveFile(request, id = -1):
+def SaveFile(request):
     file = request.FILES['myFile']
-    # print(file.name)
-    fname = "user"+str(id)+"."+file.name.split(".")[1]
-    if(default_storage.exists(fname)):
-        default_storage.delete(fname)
-    file_name = default_storage.save(fname, file)
+    file_name = default_storage.save(file.name, file)
 
     return JsonResponse(file_name, safe=False)
 

@@ -69,18 +69,18 @@ export default function Register(props) {
             <form>
                 <div className="mb-3">
                     <label htmlFor="fullname" className="form-label">Full name</label>
-                    <input type="text" className="form-control" id="fullname" value={regInputs.name} onChange={e=>setregInputs({full_name:e.target.value,email:regInputs.email,password:regInputs.password})} required/>
+                    <input type="text" className="form-control" id="fullname" placeholder="Enter fullname" value={regInputs.full_name} onChange={e=>setregInputs({full_name:e.target.value,email:regInputs.email,password:regInputs.password})} required/>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="email" className="form-label">Email address</label>
-                    <input type="email" className="form-control" id="email" value={regInputs.email} onChange={e=>setregInputs({full_name:regInputs.full_name,email:e.target.value,password:regInputs.password})} required/>
+                    <input type="email" className="form-control" id="email" placeholder="Enter email" value={regInputs.email} onChange={e=>setregInputs({full_name:regInputs.full_name,email:e.target.value,password:regInputs.password})} required/>
                 </div>
                 
                 <div className="mb-3">
                     <label htmlFor="password" className="form-label">New Password</label>
-                    <input type="password" className="form-control" id="password" value={regInputs.password} onChange={e=>setregInputs({full_name:regInputs.full_name,email:regInputs.email,password:e.target.value})} required/>
+                    <input type="password" className="form-control" id="password" placeholder="Enter password" value={regInputs.password} onChange={e=>setregInputs({full_name:regInputs.full_name,email:regInputs.email,password:e.target.value})} required/>
                 </div>
-                <button type="button" className="btn btn-success" onClick={registerUser} data-bs-dismiss='modal'>Submit</button>
+                <button type="button" className="btn btn-success form-control logbtn" onClick={registerUser} data-bs-dismiss='modal'>Submit</button>
             </form>
         </div>
     )

@@ -31,6 +31,39 @@ button {
           align-items: center;
 }
 
+.authBtn {
+  margin: 0;
+  height: 100%;
+  padding: 10px 0;
+  border-radius: 0;
+  width: 50%;
+  background-color: #ccc;
+  border: 2px solid #ccc;
+  border-right: 1px solid #888;
+  outline: none;
+  color: #444;
+}
+
+.modal, .modal-dialog, .modal-content, .modal-header {
+  border: none;
+}
+
+.logbtn {
+  margin: 1rem 0;
+}
+
+.btn-secondary:focus {
+  outline: 0 !important;
+}
+
+.btn-secondary:active {
+  outline: 0 !important;
+}
+
+.modal-header {
+  padding: 0;
+}
+
 .home-container {
   min-height: 160vh;
   background-color: #292b2c;

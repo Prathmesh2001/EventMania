@@ -6,8 +6,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  // useHistory,
-  // Redirect,
 
 } from "react-router-dom";
 import Navbar from './components/Navbar';
@@ -16,8 +14,8 @@ import Home from './components/Home';
 import Profile from './components/Profile';
 import Footer from './components/Footer';
 import EventDetail from './components/EventDetail';
-import Payment from './components/Payment';
 import Lndindpage from './components/Lndindpage';
+import AddEvent from './components/AddEvent';
 
 const jwt = require('jsonwebtoken');
 function App() {
@@ -135,7 +133,7 @@ function App() {
   return (
     <>
       <Router>
-        <Navbar title = "EventMania" handle_login = {handle_login} handle_logout = {handle_logout} cred_dict = {user_auth}/>
+        <Navbar title = "EventMania" handle_token = {handle_token} handle_login = {handle_login} handle_logout = {handle_logout} cred_dict = {user_auth}/>
         <div>
           <Switch>
             <Route exact path="/home">
@@ -147,9 +145,13 @@ function App() {
             <Route exact path = "/:id/payment">
               <Payment cred_dict = {user_auth}/>
             </Route>
+            <Route exact path = "/addevent">
+              <AddEvent/>
+            </Route>
             <Route exact path = "/profile">
               <Profile cred_dict = {user_auth} handle_token = {handle_token}/>
             </Route>
+            
             <Route exact path = "/:id">
               <EventDetail />
             </Route>

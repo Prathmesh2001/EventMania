@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import LogIn from "./LogIn";
 import Register from "./Register";
 
+
 export default function Navbar(props) {
   const [entry, setentry] = useState("LogIn");
+  const [ussr, setussr] = useState([])
+
   const showSignIn = () => {
     setentry("LogIn");
   };
@@ -26,14 +29,43 @@ export default function Navbar(props) {
 
   const logged_in_nav = (
     <>
-      <Link className="btn btn-success mx-2" to="/Profile">
-            User profile
+      {ussr['is_staff'] ? <Link className="btn btn-primary mx-3" to="/addevent">Add event</Link> : <></>}
+      <Link className="btn btn-outline-success mx-2 text-success" to="/Profile">
+        User profile
       </Link>
-      <li className="btn btn-danger mx-2" onClick = {props.handle_logout}>
+      <li className="btn btn-outline-danger mx-2 text-light" onClick={props.handle_logout}>
         logout
       </li>
     </>
   );
+
+  useEffect(() => {
+    if (!localStorage.getItem('access_t')) {
+      return;
+    }
+    console.log("hello")
+    const fun = async () => {
+      await props.handle_token();
+      fetch(`http://127.0.0.1:8000/api/user/${props.cred_dict['u_id']}`, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + localStorage.getItem('access_t')
+        }
+
+      })
+        .then(resp => resp.json())
+        .then(resp => {
+          setussr(resp)
+          console.log(resp.data)
+        })
+        .then(error => console.log(error))
+    }
+    fun()
+    // console.log(ussr)
+  }, [props])
+
 
   return (
     <nav className="px-5 navbar navbar-expand-lg navbar-dark bg-dark0">
@@ -66,9 +98,11 @@ export default function Navbar(props) {
             </li> */}
           </ul>
 
-          
+          {/* {props.cred_dict['authflag']&&ussr['is_staff'] ? <Link className="btn btn-primary mx-3" to="/addevent">Add event</Link> : <></>} */}
+          {/* <!-- Button trigger modal --> */}
+
           <div>
-            {props.cred_dict['authflag']?logged_in_nav:logged_out_nav}
+            {props.cred_dict['authflag'] ? logged_in_nav : logged_out_nav}
           </div>
           {/* <button
             className="btn btn-outline-success"
@@ -93,31 +127,25 @@ export default function Navbar(props) {
           >
             <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable ">
               <div className="modal-content">
-                <div className="modal-header py-4">
-                  <div className="column" style={{ width: 500 }}>
+                <div className="modal-header d-flex justify-content-center">
+                  <div className="row" style={{ width: 500 }}>
                     <button
-                      className="btn btn-outline-secondary mx-2"
+                      className="btn btn-secondary shadow-none authBtn col-6"
                       onClick={showSignIn}
                     >
                       Sign In
                     </button>
                     <button
-                      className="btn btn-outline-secondary mx-5"
+                      className="btn btn-secondary shadow-none authBtn col-6"
                       onClick={showRegister}
                     >
                       Register
                     </button>
                   </div>
-                  <button
-                    type="button"
-                    className="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  />
                 </div>
-                
+
                 <div className="modal-body p-4">
-                  {entry === "LogIn" ? <LogIn handle_login = {props.handle_login} cred_dict = {props.cred_dict}/> : <Register handle_login = {props.handle_login} cred_dict = {props.cred_dict}/>}
+                  {entry === "LogIn" ? <LogIn handle_login={props.handle_login} cred_dict={props.cred_dict} /> : <Register handle_login={props.handle_login} cred_dict={props.cred_dict} />}
                 </div>
 
               </div>

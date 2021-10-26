@@ -10,7 +10,7 @@ export default function LogIn(props) {
         history.push(``)
     }
 
-    const [email, setemail] = useState("")
+    const [email, setemail] = useState('')
     const [password, setpass] = useState("")
     // const [signInfo, setsignInfo] = useState({
     //     email: '',
@@ -33,13 +33,13 @@ export default function LogIn(props) {
             <form>
                 <div className="mb-3">
                     <label htmlFor="signinemail" className="form-label">Email address</label>
-                    <input type="email" className="form-control" id="signinemail" value={email} onChange={e => setemail(e.target.value)} required/>
+                    <input type="email" className="form-control" id="signinemail" placeholder="Enter email" value={email} onChange={e => setemail(e.target.value)} required/>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="signinpassword" className="form-label">Password</label>
-                    <input type="password" className="form-control" id="signinpassword" value={password} onChange={e => setpass(e.target.value)} required/>
+                    <input type="password" className="form-control" id="signinpassword" placeholder="Enter password" value={password} onChange={e => setpass(e.target.value)} required/>
                 </div>
-                <button type="button" className="btn btn-success" onClick={checkuser} data-bs-dismiss="modal">Submit</button>
+                <button type="button" className="btn btn-success form-control logbtn" onClick={checkuser} data-bs-dismiss="modal">Submit</button>
             </form>
         </div>
     )
