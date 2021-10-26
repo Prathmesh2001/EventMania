@@ -30,7 +30,7 @@ function Home() {
 
                 <Carousel/>
                 
-                <div className="trending-section text-center my-5">
+                <div className="trending-section text-center">
                     <h3>Trending</h3>
                     <div className="all-events">
                         {

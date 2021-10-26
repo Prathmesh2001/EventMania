@@ -26,10 +26,10 @@ export default function Navbar(props) {
 
   const logged_in_nav = (
     <>
-      <Link className="btn btn-outline-success mx-2 text-success" to="/Profile">
+      <Link className="btn btn-success mx-2" to="/Profile">
             User profile
       </Link>
-      <li className="btn btn-outline-danger mx-2 text-light" onClick = {props.handle_logout}>
+      <li className="btn btn-danger mx-2" onClick = {props.handle_logout}>
         logout
       </li>
     </>
@@ -59,11 +59,11 @@ export default function Navbar(props) {
                 Home
               </Link>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link className="nav-link" to="/about">
                 About
               </Link>
-            </li>
+            </li> */}
           </ul>
 
           

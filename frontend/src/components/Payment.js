@@ -44,14 +44,14 @@ function Payment(props) {
 
     }
 
-    const handlePay = () => {
+    const handlePay = async() => {
         let formField = {}
 
         formField['User']=ussr['id'];
         formField['EventId']=theEvent['EventId']
         formField['Seats']= seats
         console.log("POST",formField)
-        fetch(`http://127.0.0.1:8000/api/${props.cred_dict['u_id']}/history`, {
+        await fetch(`http://127.0.0.1:8000/api/${props.cred_dict['u_id']}/history`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -60,7 +60,7 @@ function Payment(props) {
         }).then((resp)=>{
             console.log(resp.data)
             alert("Payment Success. Ticket Booked!!! (Check your Profile to confirm)", theEvent)
-            historyPath.push("/home");
+            historyPath.push("/Profile");
         })
 
         
