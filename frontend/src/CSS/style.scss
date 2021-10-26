@@ -1,0 +1,33 @@
+@import 'variables';
+body{
+    background-color: #efefef;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a,a:visited,a:hover{
+    color: #ffffff;
+}
+
+.bg-dark0,
+.carousel,
+.my-container{
+    background-color: $primary;
+}
+
+button{
+    margin: 10px;
+}
+
+.center-object{
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+@import 'navbar';
+@import 'home';
+@import 'footer';
+@import 'payment';
+@import 'media_query';
+@import 'userProfile';

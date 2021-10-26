@@ -1,0 +1,109 @@
+
+.home-container{
+    min-height: 160vh;
+    background-image: url("../texture-1.png");
+    // background-image: linear-gradient(to right, rgb(129, 47, 74), rgb(102, 25, 55), rgb(151, 22, 22)); 
+    background-repeat: repeat;
+    background-size: 20%;
+    padding: 5em 0;
+    color: #ffffff;
+}
+
+.carousel-container{
+
+    background-color: #efefef;
+    margin-bottom: 10rem;
+    max-height: 30em;
+}
+
+.carousel{
+    display: flex;
+    justify-content: center;
+    // height: auto;
+}
+
+.carousel-inner{
+    width: 90%; 
+    background-color: $grey;
+    position: relative;
+    border-radius: 5px;
+    height: auto;
+}
+
+
+.carousel-item img{
+    height: 30rem;
+    object-fit: cover;
+    object-position: bottom;
+}
+
+
+.my-container{
+    width: 70rem;
+    padding: 2rem 5rem;
+    background-color: #efefef;
+    color: $primary;
+    min-height: 30rem;
+}
+.trending-section{
+    background-color: #efefef;
+    padding: 2rem;
+    h3{
+    color: #121212;
+    text-transform: uppercase;
+    border-bottom: 1px solid $grey;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    }
+}
+
+.img-container{
+    position: relative;
+    height: 15rem;
+}
+.big-img-container{
+    max-height: 30rem;
+    position: relative;
+    img{
+        max-height: 30rem;
+        width: 100%;
+        // position: absolute;
+        object-fit: cover;
+    }
+}
+
+.event-card .card{
+    position: relative;
+    display: block;
+    box-shadow: 0 0 10px 1px #ddd;
+    transition: 0.2s all ;
+    a,a:visited{
+        text-decoration: none;
+
+        color: #121212;
+    }
+    img{
+        width: 100%;
+        object-fit: cover;
+        object-position: bottom;
+        height: 100%;
+    }
+}
+.event-card .card:hover{
+    box-shadow: 0 0 20px 5px #bbb;
+}
+
+
+.card-body{
+    text-align: left;
+}
+
+
+/* ########################## all events ############################## */
+.all-events{
+    margin: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px,1fr));
+    gap: 3rem;
+}
+
+

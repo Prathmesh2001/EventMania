@@ -8,7 +8,7 @@ export default function AddEvent() {
     const [Date1, setDate1] = useState('')
     const [Time, setTime] = useState('')
     const [EventVenue, setEventVenue] = useState('')
-    const [EventCost, setEventCost] = useState('')
+    const [EventCost, setEventCost] = useState(0)
     const [EventPhotoName, setEventPhotoName] = useState(null)
     
     const createEvent=async()=>{
@@ -36,7 +36,7 @@ export default function AddEvent() {
             EventCost:EventCost,
             EventPhotoName:EventPhotoName.name,
         }
-        await axios.post('http://127.0.0.1:8000/api/event/',data)
+        await axios.post('http://127.0.0.1:8000/api/event',data)
         .then((res)=>{
             console.log(res.data)
         })
@@ -62,7 +62,7 @@ export default function AddEvent() {
         <div>
             <div className="container">
                 <form>
-                    <div className="row flex justify-content-center my-3">
+                    <div className="row flex justify-content-center my-4">
                         <div className="col-2">
                             <label htmlFor="EventName" className="col-form-label">Event Name:</label>
                         </div>
@@ -105,7 +105,7 @@ export default function AddEvent() {
                             <label htmlFor="EventCost" className="col-form-label">Event Cost:</label>
                         </div>
                         <div className="col-8">
-                            <input type="text" id="EventCost" className="form-control" placeholder="price" value={EventCost} onChange={e=>setEventCost(e.target.value)}/>
+                            <input type="number" id="EventCost" className="form-control" placeholder="price" value={EventCost} onChange={e=>setEventCost(e.target.value)}/>
                         </div>
                     </div>
                     <div className="row flex justify-content-center my-3">
@@ -116,7 +116,7 @@ export default function AddEvent() {
                             <input type="file" id="EventPhotoName" onChange={e=>setEventPhotoName(e.target.files[0])}/>
                         </div>
                     </div>
-                    <button type="button" className="btn btn-primary" onClick={createEvent}>Submit</button>
+                    <button type="button" className="btn btn-primary my-4" style={{marginLeft:110}} onClick={createEvent}>Submit</button>
                 </form>
             </div>
         </div>
