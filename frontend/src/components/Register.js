@@ -80,7 +80,7 @@ export default function Register(props) {
                     <label htmlFor="password" className="form-label">New Password</label>
                     <input type="password" className="form-control" id="password" placeholder="Enter password" value={regInputs.password} onChange={e=>setregInputs({full_name:regInputs.full_name,email:regInputs.email,password:e.target.value})} required/>
                 </div>
-                <button type="button" className="btn btn-success form-control logbtn" onClick={registerUser} data-bs-dismiss='modal'>Submit</button>
+                <button type="button" className="btn btn-secondary form-control logbtn" onClick={registerUser} data-bs-dismiss='modal'>Submit</button>
             </form>
         </div>
     )

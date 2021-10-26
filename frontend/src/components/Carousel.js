@@ -7,13 +7,16 @@ function Carousel() {
                 <div id="eve" className="carousel slide" data-bs-ride="carousel">
                     <div className="carousel-inner">
                         <div className="carousel-item active">
-                            <img src="https://source.unsplash.com/1600x900/?concert" className="d-block w-100" alt="..." />
+                            {/* <img src="https://source.unsplash.com/1600x900/?concert" className="d-block w-100" alt="..." /> */}
+                            <img src="/images/orc.jpg" alt="orcestra" />
                         </div>
                         <div className="carousel-item">
-                            <img src="https://source.unsplash.com/1400x900/?sport" className="d-block w-100" alt="..." />
+                            {/* <img src="https://source.unsplash.com/1400x900/?sport" className="d-block w-100" alt="..." /> */}
+                            <img src="/images/nintendo.jpg" alt="nintendo" />
                         </div>
                         <div className="carousel-item">
-                            <img src="https://source.unsplash.com/1200x700/?entertainment" className="d-block w-100" alt="..." />
+                            {/* <img src="https://source.unsplash.com/1200x700/?entertainment" className="d-block w-100" alt="..." /> */}
+                            <img src="/images/rollercoaster.jpg" alt="" />
                         </div>
                         <div className="carousel-indicators">
                             <button type="button" data-bs-target="#eve" data-bs-slide-to="0" className="active"></button>

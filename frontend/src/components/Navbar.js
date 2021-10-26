@@ -19,7 +19,7 @@ export default function Navbar(props) {
 
   const logged_out_nav = (
     <button
-      className="btn btn-outline-success"
+      className="btn btn-outline-warning"
       data-bs-toggle="modal"
       data-bs-target="#exampleModal"
     >
@@ -29,11 +29,11 @@ export default function Navbar(props) {
 
   const logged_in_nav = (
     <>
-      {ussr['is_staff'] ? <Link className="btn btn-primary mx-3" to="/addevent">Add event</Link> : <></>}
-      <Link className="btn btn-outline-success mx-2 text-success" to="/Profile">
+      {ussr['is_staff'] ? <Link to="/addevent"><li className="btn btn-outline-warning mx-3" > Add event</li></Link> : <></>}
+      <Link to="/Profile"><li  className="btn btn-outline-warning mx-2" >
         User profile
-      </Link>
-      <li className="btn btn-outline-danger mx-2 text-light" onClick={props.handle_logout}>
+      </li></Link>
+      <li className="btn btn-outline-warning mx-2" onClick={props.handle_logout}>
         logout
       </li>
     </>
@@ -71,7 +71,7 @@ export default function Navbar(props) {
     <nav className="px-5 navbar navbar-expand-lg navbar-dark bg-dark0">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
-          {props.title}
+          {props.title}<div className="logo-underline"></div>
         </Link>
         <button
           className="navbar-toggler"
@@ -87,8 +87,8 @@ export default function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to="/home">
-                Home
+              <Link className="nav-link active text-warning mx-3" aria-current="page" to="/home">
+                Home 
               </Link>
             </li>
             {/* <li className="nav-item">
@@ -130,13 +130,13 @@ export default function Navbar(props) {
                 <div className="modal-header d-flex justify-content-center">
                   <div className="row" style={{ width: 500 }}>
                     <button
-                      className="btn btn-secondary shadow-none authBtn col-6"
+                      className="btn btn-dark shadow-none authBtn col-6"
                       onClick={showSignIn}
                     >
                       Sign In
                     </button>
                     <button
-                      className="btn btn-secondary shadow-none authBtn col-6"
+                      className="btn btn-dark shadow-none authBtn col-6"
                       onClick={showRegister}
                     >
                       Register

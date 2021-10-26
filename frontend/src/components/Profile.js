@@ -139,7 +139,7 @@ function Profile(props) {
 
 
     return (
-        <div className="user-page">
+        <div className="user-page bg-secon">
             <div className="container-fluid bg-secondary text-light pt-3">
 
                 <div className="container profile-container bg-dark mb-3 py-3">
@@ -148,12 +148,12 @@ function Profile(props) {
                         <div className="profile-pic" >
                             <img src={ussr.UserPhotoName ? 'http://127.0.0.1:8000/api/media/' + ussr.UserPhotoName : imgg} alt="profile pic" />
                         </div>
-                        <button type="button" className="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        <button type="button" className="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                             Edit Profile
                         </button>
                     </div>
                     <div>
-                        <h1 className="font-monospace fw-normal">{ussr.full_name ? ussr.full_name : "Anonymous" + props.cred_dict['u_id']}</h1>
+                        <h1 className="font-monospace fw-normal myBorder">{ussr.full_name ? ussr.full_name : "Anonymous" + props.cred_dict['u_id']}</h1>
 
                         <div className="row">
                             <div className="col-sm-4">{myHistory.length} Events</div>
@@ -187,10 +187,10 @@ function Profile(props) {
                                     <label htmlFor="inputname3" className="form-label">Full Name</label>
                                     <input type="text" placeholder={ussr.full_name ? ussr.full_name : "Anonymous" + props.cred_dict['u_id']} value={f_name} onChange={e => setf_name(e.target.value)} className="form-control" id="inputname3" />
                                 </div>
-                                <div className="mb-3">
+                                {/* <div className="mb-3">
                                     <label htmlFor="inputEmail3" className="form-label">Email</label>
                                     <input type="email" placeholder={ussr.email ? ussr.email : "Email"} value={u_email} onChange={e => setu_email(e.target.value)} className="form-control" id="inputEmail3" />
-                                </div>
+                                </div> */}
                                 <div className="mb-3">
                                     <label htmlFor="inputGroupFile01" className="form-label" >Profile Image</label>
                                     <input type="file" className="form-control" onChange={handleFileSelected} id="inputGroupFile01" />
@@ -200,11 +200,8 @@ function Profile(props) {
                                     <input type="password" value={u_pass} onChange={e => setu_pass(e.target.value)} className="form-control" id="inputPassword1" />
                                 </div>
 
-                                <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={handle_submit}>Update Changes</button>
+                                <button type="button" className="btn btn-dark" data-bs-dismiss="modal" onClick={handle_submit}>Update Changes</button>
                             </form>
-                        </div>
-                        <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>
@@ -212,70 +209,72 @@ function Profile(props) {
             </div>
             {/* modal end */}
 
-            <div className="container p-1 my-5">
-                <table>
-                    <thead>
-                        <tr>
-                            <td>Sr No</td>
-                            <td>Event Name</td>
-                            <td>Event Date</td>
-                            <td>Event Time</td>
-                            <td>Seats</td>
-                            <td>Cost Paid</td>
-                        </tr>
-                    </thead>
-                    <tbody>
 
-                        {
-                            myHistory.map((oneElem, index) => {
-                                let eventName, totalCost, eventDate, eventTime;
-                                for (let i of Object.values(myEvent)) {
-                                    console.log(i, oneElem['EventId'])
-                                    if (i['EventId'] === oneElem['EventId']) {
-                                        console.log("Match")
-                                        eventName = i['EventName']
-                                        totalCost = (oneElem.Seats) * (i['EventCost'])
-                                        let dateObj = new Date(i['DateOfEvent'])
-                                        let date = dateObj.getDate()
-                                        let month = dateObj.getMonth()
-                                        let year = dateObj.getFullYear()
-                                        let hours = dateObj.getHours()
-                                        let minutes = dateObj.getMinutes()
-                                        let suffix;
-                                        if (hours >= 12) {
-                                            suffix = "P.M."
-                                            if (hours > 12) {
-                                                hours -= 12
-                                            }
-                                        }
-                                        else {
-                                            suffix = "A.M."
-                                            if (hours === 0) {
-                                                hours = 12
-                                            }
-                                        }
+                <div className="container p-1 py-5">
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Sr No</td>
+                                <td>Event Name</td>
+                                <td>Event Date</td>
+                                <td>Event Time</td>
+                                <td>Seats</td>
+                                <td>Cost Paid</td>
+                            </tr>
+                        </thead>
+                        <tbody>
 
-                                        eventDate = date + "/" + month + "/" + year
-                                        eventTime =  hours + ":" + minutes + " " + suffix
+                            {
+                                myHistory.map((oneElem, index) => {
+                                    let eventName, totalCost, eventDate, eventTime;
+                                    for (let i of Object.values(myEvent)) {
+                                        console.log(i, oneElem['EventId'])
+                                        if (i['EventId'] === oneElem['EventId']) {
+                                            console.log("Match")
+                                            eventName = i['EventName']
+                                            totalCost = (oneElem.Seats) * (i['EventCost'])
+                                            let dateObj = new Date(i['DateOfEvent'])
+                                            let date = dateObj.getDate()
+                                            let month = dateObj.getMonth()
+                                            let year = dateObj.getFullYear()
+                                            let hours = dateObj.getHours()
+                                            let minutes = dateObj.getMinutes()
+                                            let suffix;
+                                            if (hours >= 12) {
+                                                suffix = "P.M."
+                                                if (hours > 12) {
+                                                    hours -= 12
+                                                }
+                                            }
+                                            else {
+                                                suffix = "A.M."
+                                                if (hours === 0) {
+                                                    hours = 12
+                                                }
+                                            }
+
+                                            eventDate = date + "/" + month + "/" + year
+                                            eventTime = hours + ":" + minutes + " " + suffix
+                                        }
                                     }
+                                    return (
+                                        <tr key={oneElem.HistoryId}>
+                                            <td>{index + 1}</td>
+                                            <td>{eventName}</td>
+                                            <td>{eventDate}</td>
+                                            <td>{eventTime}</td>
+                                            <td>{oneElem.Seats}</td>
+                                            <td>{totalCost}</td>
+                                        </tr>
+                                    )
                                 }
-                                return (
-                                    <tr key={oneElem.HistoryId}>
-                                        <td>{index + 1}</td>
-                                        <td>{eventName}</td>
-                                        <td>{eventDate}</td>
-                                        <td>{eventTime}</td>
-                                        <td>{oneElem.Seats}</td>
-                                        <td>{totalCost}</td>
-                                    </tr>
                                 )
                             }
-                            )
-                        }
-                    </tbody>
-                </table>
-            </div>
+                        </tbody>
+                    </table>
+                </div>
 
+            
         </div>
     );
 }

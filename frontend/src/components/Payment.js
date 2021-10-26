@@ -70,9 +70,9 @@ function Payment(props) {
         height: "100vh"
     }
     return (
-        <div className="container " style={{ minHeight: fullHeight.height }}>
+        <div className="bg-secon" style={{ minHeight: fullHeight.height}}>
 
-            <Link className="btn btn-primary mt-3 ms-5" to={'/' + theEvent['EventId']}>Go Back</Link>
+            <Link className="btn btn-prim mt-5 ms-5" to={'/' + theEvent['EventId']}><i class="fas fa-arrow-left"></i>  Back</Link>
             <div className="payment-section my-5">
 
                 <div className="card p-2 rounded">
@@ -81,7 +81,7 @@ function Payment(props) {
                             <img src={'http://127.0.0.1:8000/api/media/' + theEvent['EventPhotoName']} alt={theEvent.EventPhotoName} />
                         </div>
                         <div className="card-body ms-3">
-                            <h3 className="card-title">{theEvent['EventName']}</h3><hr />
+                            <h3 className="card-title myBorder">{theEvent['EventName']}</h3>
                             <p>Cost per person: INR {theEvent['EventCost']}</p>
                             <div className="quantity mb-4">
                                 <i className="fa fa-minus" onClick={decrement} aria-hidden="true"></i>
@@ -91,7 +91,7 @@ function Payment(props) {
                             <p className="total-cost"> <strong>Total Cost: {theEvent['EventCost'] * seats} Rs</strong> </p>
                         </div>
                     </div>
-                    <button className="form-control btn btn-success my-3" onClick={handlePay} type="submit">Proceed to Pay</button>
+                    <button className="form-control btn btn-prim text-light my-3" onClick={handlePay} type="submit">Proceed to Pay</button>
 
                 </div>
 

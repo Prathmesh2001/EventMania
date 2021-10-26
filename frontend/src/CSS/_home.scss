@@ -3,7 +3,7 @@
     min-height: 160vh;
     // background-image: url("../texture-1.png");
     // background-image: linear-gradient(to right, rgb(129, 47, 74), rgb(102, 25, 55), rgb(151, 22, 22)); 
-    background-color: 	$dark;
+    background-color: 	$primary;
     background-repeat: repeat;
     background-size: 100%;
     padding: 3em 0;
@@ -20,11 +20,8 @@
 .carousel{
     display: flex;
     justify-content: center;
-    background-color: 	$dark;
+    background-color: 	$primary;
     // height: auto;
-}
-.carousel-slide{
-    background-color: 	$dark;
 }
 
 .carousel-inner{
@@ -38,7 +35,8 @@
 .carousel-item img{
     height: 30rem;
     object-fit: cover;
-    object-position: bottom;
+    object-position: center;
+    width: 100%;
 }
 
 
@@ -112,3 +110,12 @@
 }
 
 
+//landing page
+.welcome-page{
+    height: 70vh;
+    img{
+        width: 100%;
+        object-fit: cover;
+        height: 100%;
+    }
+}

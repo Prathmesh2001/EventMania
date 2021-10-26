@@ -9,13 +9,27 @@ a,a:visited,a:hover{
     color: #ffffff;
 }
 
-.bg-dark0,
+.bg-dark0{
+    background-color: $dark;
+}
 .my-container{
     background-color: $primary;
 }
 
+.myBorder{
+    padding: 1rem 0;
+    border-bottom: 3px solid $yellow;
+}
+
 button{
     margin: 10px;
+}
+.btn-prim{
+    background-color: $primary;
+}
+.btn-prim:hover{
+    background-color: $dark;
+    color: #777;
 }
 
 .center-object{

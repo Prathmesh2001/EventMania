@@ -48,6 +48,9 @@ td, tr{
     
 }
 
-
+table tr:nth-child(odd)
+{background-color: #ffffff;}
+table thead, table thead tr
+{background-color: $dark !important;}
 table tr:nth-child(even)
 {background-color: #cdcdcd;}

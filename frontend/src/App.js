@@ -16,6 +16,7 @@ import Footer from './components/Footer';
 import EventDetail from './components/EventDetail';
 import Lndindpage from './components/Lndindpage';
 import AddEvent from './components/AddEvent';
+import Payment from './components/Payment';
 
 const jwt = require('jsonwebtoken');
 function App() {

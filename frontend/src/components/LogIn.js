@@ -39,7 +39,7 @@ export default function LogIn(props) {
                     <label htmlFor="signinpassword" className="form-label">Password</label>
                     <input type="password" className="form-control" id="signinpassword" placeholder="Enter password" value={password} onChange={e => setpass(e.target.value)} required/>
                 </div>
-                <button type="button" className="btn btn-success form-control logbtn" onClick={checkuser} data-bs-dismiss="modal">Submit</button>
+                <button type="button" className="btn btn-secondary form-control logbtn" onClick={checkuser} data-bs-dismiss="modal">Submit</button>
             </form>
         </div>
     )

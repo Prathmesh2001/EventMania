@@ -11,6 +11,22 @@ function EventCards(props) {
     let hours = dateObj.getHours();
     let mins = dateObj.getMinutes();
     let time = hours + ":" + mins;
+                            
+    let suffix;
+    if (hours >= 12) {
+        suffix = "P.M."
+        if (hours > 12) {
+            hours -= 12
+        }
+    }
+    else {
+        suffix = "A.M."
+        if (hours === 0) {
+            hours = 12
+        }
+    }
+
+    let eventTime =  hours + ":" + mins + " " + suffix;
 
     return (
         <>
@@ -23,7 +39,7 @@ function EventCards(props) {
                         <div className="card-body">
                             <h5 className="card-title">{props['name']}</h5>
                             {/* <p className="card-text">{props.desc}</p> */}
-                            <p className="card-text"><small className="text-muted">{props.venue}<br />{combinedDate} at {time}</small></p>
+                            <p className="card-text"><small className="text-muted">{props.venue}<br />{combinedDate} at {eventTime}</small></p>
 
                             {/* <Link  to={'/'+props.id} className="btn btn-primary">Book Now</Link> */}
                         </div>

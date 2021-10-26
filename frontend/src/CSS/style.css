@@ -10,13 +10,30 @@ a, a:visited, a:hover {
   color: #ffffff;
 }
 
-.bg-dark0,
+.bg-dark0 {
+  background-color: #292b2c;
+}
+
 .my-container {
   background-color: #333446;
 }
 
+.myBorder {
+  padding: 1rem 0;
+  border-bottom: 3px solid #f0ad4e;
+}
+
 button {
   margin: 10px;
+}
+
+.btn-prim {
+  background-color: #333446;
+}
+
+.btn-prim:hover {
+  background-color: #292b2c;
+  color: #777;
 }
 
 .center-object {
@@ -44,8 +61,12 @@ button {
   color: #444;
 }
 
-.modal, .modal-dialog, .modal-content, .modal-header {
+#exampleModal .modal, #exampleModal .modal-dialog, #exampleModal .modal-content, #exampleModal .modal-header {
   border: none;
+}
+
+#exampleModal .modal-header {
+  padding: 0;
 }
 
 .logbtn {
@@ -60,13 +81,28 @@ button {
   outline: 0 !important;
 }
 
-.modal-header {
-  padding: 0;
+.navbar-brand {
+  position: relative;
+}
+
+.logo-underline {
+  height: 1rem;
+  width: 5rem;
+  border: solid 3px #f0ad4e;
+  border-radius: 50%;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  position: absolute;
+  left: 2.5rem;
+  top: 1.5rem;
+  -webkit-transform: rotateZ(-5deg);
+          transform: rotateZ(-5deg);
 }
 
 .home-container {
   min-height: 160vh;
-  background-color: #292b2c;
+  background-color: #333446;
   background-repeat: repeat;
   background-size: 100%;
   padding: 3em 0;
@@ -86,11 +122,7 @@ button {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-color: #292b2c;
-}
-
-.carousel-slide {
-  background-color: #292b2c;
+  background-color: #333446;
 }
 
 .carousel-inner {
@@ -104,8 +136,9 @@ button {
   height: 30rem;
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: bottom;
-     object-position: bottom;
+  -o-object-position: center;
+     object-position: center;
+  width: 100%;
 }
 
 .my-container {
@@ -188,9 +221,20 @@ button {
   gap: 3rem;
 }
 
+.welcome-page {
+  height: 70vh;
+}
+
+.welcome-page img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+}
+
 /* ########################## Footer ############################## */
 footer {
-  background-color: #333446;
+  background-color: #292b2c;
   color: #ffffff;
   padding: 2rem 0;
   display: -webkit-box;
@@ -250,6 +294,12 @@ footer {
           transform: scale(2);
 }
 
+.bg-secon {
+  background: url("../components/images/bg2.png");
+  background-size: 40%;
+  background-repeat: repeat;
+}
+
 .payment-section {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -268,7 +318,7 @@ footer {
 
 .payment-section .card {
   width: 50vw;
-  border-top: 5px solid #3f9939;
+  border-top: 5px solid #292b2c;
 }
 
 .payment-section .card button {
@@ -392,6 +442,14 @@ table thead {
 td, tr {
   border: 1px solid #aaa;
   padding: 8px 12px;
+}
+
+table tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+table thead, table thead tr {
+  background-color: #292b2c !important;
 }
 
 table tr:nth-child(even) {

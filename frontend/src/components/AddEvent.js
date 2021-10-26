@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import axios from 'axios'
+import { useHistory } from 'react-router'
 
 export default function AddEvent() {
 
@@ -11,6 +12,8 @@ export default function AddEvent() {
     const [EventCost, setEventCost] = useState(0)
     const [EventPhotoName, setEventPhotoName] = useState(null)
     
+    const hist = useHistory();
+
     const createEvent=async()=>{
         console.log(EventName)
         console.log(EventDescription)
@@ -55,6 +58,8 @@ export default function AddEvent() {
         setEventVenue('');        
         setEventCost('');        
         setEventPhotoName(null);        
+        alert("New Event added Successfully !!!");
+        hist.push("/home");
 
     }
 

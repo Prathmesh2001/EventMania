@@ -12,8 +12,8 @@ function Lndindpage(props) {
         
     }
     return (
-        <div>
-            <h1>Landed Out</h1>
+        <div className="welcome-page">
+            <img src="images/welcome.jpg" alt="welcome page" />
         </div>
     )
 }

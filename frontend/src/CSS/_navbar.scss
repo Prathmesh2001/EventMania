@@ -11,8 +11,15 @@
     color: #444;
 }
 
-.modal,.modal-dialog,.modal-content,.modal-header{
-    border: none;
+#exampleModal{
+
+    .modal,.modal-dialog,.modal-content,.modal-header{
+        border: none;
+    }
+    
+    .modal-header{
+        padding: 0;
+    }
 }
 
 .logbtn{
@@ -27,7 +34,21 @@
     outline: 0 !important;
 }
 
-.modal-header{
-    padding: 0;
-}
 
+.navbar-brand{
+    position: relative;
+}
+.logo-underline{
+    height: 1rem;
+    width: 5rem;
+    // background-color: $yellow;
+    border: solid 3px $yellow;
+    border-radius: 50%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    position: absolute;
+    left: 2.5rem;
+    top: 1.5rem;
+    transform: rotateZ(-5deg);
+}
