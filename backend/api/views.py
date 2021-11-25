@@ -13,7 +13,12 @@ from django.core.files.storage import default_storage
 from rest_framework.decorators import api_view
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import permission_classes
+
+import stripe
+from django.conf import settings
 # Create your views here.
+
+
 
 class UserList(ListAPIView):
     queryset=User.objects.all()
@@ -180,3 +185,18 @@ def myHistory(request, user_id):
         return JsonResponse("Added Fail", safe=False)
 
     return HttpResponse("Not GET or Post")
+
+
+
+    # Use Stripe
+from rest_framework.response import Response
+from rest_framework import status
+
+stripe.api_key = settings.STRIPE_SECRET_KEY
+@api_view(['POST'])
+def test_payment(request):
+    test_payment_intent = stripe.PaymentIntent.create(
+    amount=1000, currency='inr', 
+    payment_method_types=['card'],
+    receipt_email='test@example.com')
+    return Response(status=status.HTTP_200_OK, data=test_payment_intent)

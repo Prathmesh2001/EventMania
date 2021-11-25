@@ -18,6 +18,12 @@ import Lndindpage from './components/Lndindpage';
 import AddEvent from './components/AddEvent';
 import Payment from './components/Payment';
 
+
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from "@stripe/stripe-js/pure";
+import CheckoutForm from "./components/CheckoutForm";
+
+
 const jwt = require('jsonwebtoken');
 function App() {
   // let u_id = 4; 
@@ -27,29 +33,29 @@ function App() {
     authflag: false,
     u_id: 4
   })
-  
-  const handle_token = async ()=>{
-    if(!localStorage.getItem('access_t')){
+
+  const handle_token = async () => {
+    if (!localStorage.getItem('access_t')) {
       return;
 
     }
     let access_exp = jwt.decode(localStorage.getItem('access_t'))['exp']
-    console.log(access_exp*1000 + 2000 - Date.now(), (access_exp*1000)+2000, Date.now())
+    console.log(access_exp * 1000 + 2000 - Date.now(), (access_exp * 1000) + 2000, Date.now())
     let refresh_exp = jwt.decode(localStorage.getItem('refresh_t'))['exp']
-    console.log(refresh_exp*1000 + 2000 - Date.now(), (refresh_exp*1000)+2000, Date.now())
-    if((access_exp*1000 + 2000)<Date.now()){
-      if((refresh_exp*1000 + 2000)<Date.now()){
+    console.log(refresh_exp * 1000 + 2000 - Date.now(), (refresh_exp * 1000) + 2000, Date.now())
+    if ((access_exp * 1000 + 2000) < Date.now()) {
+      if ((refresh_exp * 1000 + 2000) < Date.now()) {
         handle_logout()
       }
-      else{
-        const resp = await fetch('http://localhost:8000/api/token/refresh/',{
-          method:'POST',
-          headers:{
-            'Accept':'application/json',
+      else {
+        const resp = await fetch('http://localhost:8000/api/token/refresh/', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
             'Content-Type': 'application/json'
           },
-          body:JSON.stringify({
-            "refresh":localStorage.getItem('refresh_t')
+          body: JSON.stringify({
+            "refresh": localStorage.getItem('refresh_t')
           })
         })
         let r_data = await resp.json();
@@ -59,36 +65,35 @@ function App() {
       }
     }
   }
-  
+
   useEffect(() => {
     const loggedInUser = localStorage.getItem('access_t');
     if (loggedInUser) {
       handle_token()
-      .then(()=>
-        {
+        .then(() => {
           let decoded = jwt.decode(localStorage.getItem('access_t'))
           setuserauth({
-            authflag:true,
-            u_id:decoded['user_id']
+            authflag: true,
+            u_id: decoded['user_id']
           })
           // return <Redirect to = "/home"/>
           // history.push(`home`)
         }
-      )
+        )
     }
   }, []);
 
-  
 
 
-  
 
-  const handle_login = async (data)=>{
+
+
+  const handle_login = async (data) => {
     console.log(data)
     const resp = await fetch('http://localhost:8000/api/token/', {
       method: 'POST',
       headers: {
-        'Accept':'application/json',
+        'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(data)
@@ -100,24 +105,24 @@ function App() {
     //   localStorage.setItem('refresh_t', json.refresh);
     //   let decoded = jwt.decode(json.access)
     //   console.log(decoded)
-    
+
     let r_data = await resp.json();
     console.log(r_data)
     localStorage.setItem('access_t', r_data.access)
     localStorage.setItem('refresh_t', r_data.refresh)
     let decoded = jwt.decode(r_data.access)
     setuserauth({
-      authflag:true,
-      u_id:decoded['user_id']
+      authflag: true,
+      u_id: decoded['user_id']
     })
-    
+
     return decoded
-      // this.setState({
-      //   authflag: true,
-      //   // u_id: j.user_id
-      //   //here gere gere gere geyghsjbksdncbkascnbkasjnbckjansckjancvk 
-      // });
-    
+    // this.setState({
+    //   authflag: true,
+    //   // u_id: j.user_id
+    //   //here gere gere gere geyghsjbksdncbkascnbkasjnbckjansckjancvk 
+    // });
+
   }
 
 
@@ -129,39 +134,44 @@ function App() {
     console.log("visited logout2")
   }
 
-  
+  const stripePromise = loadStripe('pk_test_51Jt9Z1SCb7008DVfpV7XIq3oRAT9Nf4khTqKmhG5E1Uqrd6CQ4Fpjdo5668C1QayfnP8zdTg7ZZWx61mVsBFEjzH00bjo2uZqq');
 
   return (
     <>
       <Router>
-        <Navbar title = "EventMania" handle_token = {handle_token} handle_login = {handle_login} handle_logout = {handle_logout} cred_dict = {user_auth}/>
+        <Navbar title="EventMania" handle_token={handle_token} handle_login={handle_login} handle_logout={handle_logout} cred_dict={user_auth} />
         <div>
           <Switch>
             <Route exact path="/home">
-              <Home/>
+              <Home />
             </Route>
-            <Route exact path = "/about">
-              <About/>
+            <Route exact path="/about">
+              <About />
             </Route>
-            <Route exact path = "/:id/payment">
-              <Payment cred_dict = {user_auth}/>
+            <Route exact path="/:id/payment">
+              <Payment cred_dict={user_auth} />
             </Route>
-            <Route exact path = "/addevent">
-              <AddEvent/>
+            <Route exact path="/:id/payment/gateway">
+              <Elements stripe={stripePromise}>
+                <CheckoutForm />
+              </Elements>
             </Route>
-            <Route exact path = "/profile">
-              <Profile cred_dict = {user_auth} handle_token = {handle_token}/>
+            <Route exact path="/addevent">
+              <AddEvent />
             </Route>
-            
-            <Route exact path = "/:id">
+            <Route exact path="/profile">
+              <Profile cred_dict={user_auth} handle_token={handle_token} />
+            </Route>
+
+            <Route exact path="/:id">
               <EventDetail />
             </Route>
-            <Route exact path = "/">
-              <Lndindpage handle_token = {handle_token}/>
+            <Route exact path="/">
+              <Lndindpage handle_token={handle_token} />
             </Route>
           </Switch>
         </div>
-        <Footer/>
+        <Footer />
       </Router>
     </>
   );

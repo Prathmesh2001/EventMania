@@ -16,6 +16,7 @@ urlpatterns = [
     url(r'^event/([0-9]+)$', views.EventFunc),
     path("<int:user_id>/history", views.myHistory),
     url(r'^event/SaveFile$', views.SaveFile),
+    url(r'^test-payment/$', views.test_payment),
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

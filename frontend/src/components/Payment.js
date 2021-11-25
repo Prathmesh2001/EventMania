@@ -91,7 +91,8 @@ function Payment(props) {
                             <p className="total-cost"> <strong>Total Cost: {theEvent['EventCost'] * seats} Rs</strong> </p>
                         </div>
                     </div>
-                    <button className="form-control btn btn-prim text-light my-3" onClick={handlePay} type="submit">Proceed to Pay</button>
+                    {/* <button className="form-control btn btn-prim text-light my-3" onClick={handlePay} type="submit">Proceed to Pay</button> */}
+                    <Link to={'/' + theEvent['EventId']+'/payment/gateway'} className="form-control btn btn-prim text-light my-3" type="submit">Proceed to Pay ()</Link>
 
                 </div>
 
