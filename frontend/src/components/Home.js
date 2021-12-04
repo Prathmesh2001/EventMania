@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import Carousel from './Carousel';
 import EventCards from './EventCards';
+import {
+    Link,  
+  } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 function Home() {
 
@@ -30,6 +33,10 @@ function Home() {
 
                 <Carousel/>
                 
+                <div className="card">
+                    <Link className='text-dark' to="/movies">Theaters</Link>
+                </div>
+
                 <div className="trending-section text-center">
                     <h3>Trending</h3>
                     <div className="all-events">

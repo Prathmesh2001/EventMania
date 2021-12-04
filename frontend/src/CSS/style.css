@@ -298,6 +298,7 @@ footer {
   background: url("../components/images/bg2.png");
   background-size: 40%;
   background-repeat: repeat;
+  min-height: 75vh;
 }
 
 .payment-section {

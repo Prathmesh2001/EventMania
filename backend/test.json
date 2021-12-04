@@ -1,0 +1,222 @@
+[
+    {
+        "movie_rank": "1",
+        "movie_image_url": "https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UY67_CR0,0,45,67_AL_.jpg",
+        "movie_title": "The Shawshank Redemption",
+        "movie_year": "1994",
+        "imdb_rating": "9.2",
+        "nested_movie_desc": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+        "nested_movie_director": "Frank Darabont",
+        "nested_movie_writer": "Stephen King, Frank Darabont",
+        "nested_movie_casts": "Tim Robbins, Morgan Freeman, Bob Gunton"
+    },
+    {
+        "movie_rank": "2",
+        "movie_image_url": "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UY67_CR1,0,45,67_AL_.jpg",
+        "movie_title": "The Godfather",
+        "movie_year": "1972",
+        "imdb_rating": "9.1",
+        "nested_movie_desc": "The Godfather follows Vito Corleone Don of the Corleone family as he passes the mantel to his son MichaelThe Godfather follows Vito Corleone Don of the Corleone family as he passes the mantel to his son MichaelThe Godfather follows Vito Corleone Don of the Corleone family as he passes the mantel to his son Michael",
+        "nested_movie_director": "Francis Ford Coppola",
+        "nested_movie_writer": "Mario Puzo, Francis Ford Coppola",
+        "nested_movie_casts": "Marlon Brando, Al Pacino, James Caan"
+    },
+    {
+        "movie_rank": "3",
+        "movie_image_url": "https://m.media-amazon.com/images/M/MV5BMWMwMGQzZTItY2JlNC00OWZiLWIyMDctNDk2ZDQ2YjRjMWQ0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UY67_CR1,0,45,67_AL_.jpg",
+        "movie_title": "The Godfather: Part II",
+        "movie_year": "1974",
+        "imdb_rating": "9.0",
+        "nested_movie_desc": "The early life and career of Vito Corleone in 1920s New York City is portrayed, while his son, Michael, expands and tightens his grip on the family crime syndicate.The early life and career of Vito Corleone in 1920s New York City is portrayed, while his son, Michael, expands and tightens his grip on the family crime syndicate.The early life and career of Vito Corleone in 1920s New York City is portrayed, while his son, Michael, expands and tightens his grip on the family crime syndicate.",
+        "nested_movie_director": "Francis Ford Coppola",
+        "nested_movie_writer": "Francis Ford Coppola, Mario Puzo",
+        "nested_movie_casts": "Al Pacino, Robert De Niro, Robert Duvall"
+    },
+    {
+        "movie_rank": "4",
+        "movie_image_url": "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_UY67_CR0,0,45,67_AL_.jpg",
+        "movie_title": "The Dark Knight",
+        "movie_year": "2008",
+        "imdb_rating": "9.0",
+        "nested_movie_desc": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
+        "nested_movie_director": "Christopher Nolan",
+        "nested_movie_writer": "Jonathan Nolan, Christopher Nolan, David S. Goyer",
+        "nested_movie_casts": "Christian Bale, Heath Ledger, Aaron Eckhart"
+    },
+    {
+        "movie_rank": "5",
+        "movie_image_url": "https://m.media-amazon.com/images/M/MV5BMWU4N2FjNzYtNTVkNC00NzQ0LTg0MjAtYTJlMjFhNGUxZDFmXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_UX45_CR0,0,45,67_AL_.jpg",
+        "movie_title": "12 Angry Men",
+        "movie_year": "1957",
+        "imdb_rating": "8.9",
+        "nested_movie_desc": "The jury in a New York City murder trial is frustrated by a single member whose skeptical caution forces them to more carefully consider the evidence before jumping to a hasty verdict.The jury in a New York City murder trial is frustrated by a single member whose skeptical caution forces them to more carefully consider the evidence before jumping to a hasty verdict.The jury in a New York City murder trial is frustrated by a single member whose skeptical caution forces them to more carefully consider the evidence before jumping to a hasty verdict.",
+        "nested_movie_director": "Sidney Lumet",
+        "nested_movie_writer": "Reginald Rose",
+        "nested_movie_casts": "Henry Fonda, Lee J. Cobb, Martin Balsam"
+    },
+    {
+        "movie_rank": "6",
+        "movie_image_url": "https://m.media-amazon.com/images/M/MV5BNDE4OTMxMTctNmRhYy00NWE2LTg3YzItYTk3M2UwOTU5Njg4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX45_CR0,0,45,67_AL_.jpg",
+        "movie_title": "Schindler's List",
+        "movie_year": "1993",
+        "imdb_rating": "8.9",
+        "nested_movie_desc": "In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.",
+        "nested_movie_director": "Steven Spielberg",
+        "nested_movie_writer": "Thomas Keneally, Steven Zaillian",
+        "nested_movie_casts": "Liam Neeson, Ralph Fiennes, Ben Kingsley"
+    },
+    {
+        "movie_rank": "7",
+        "movie_image_url": "https://m.media-amazon.com/images/M/MV5BNzA5ZDNlZWMtM2NhNS00NDJjLTk4NDItYTRmY2EwMWZlMTY3XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UY67_CR0,0,45,67_AL_.jpg",
+        "movie_title": "The Lord of the Rings: The Return of the King",
+        "movie_year": "2003",
+        "imdb_rating": "8.9",
+        "nested_movie_desc": "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.",
+        "nested_movie_director": "Peter Jackson",
+        "nested_movie_writer": "J.R.R. Tolkien, Fran Walsh, Philippa Boyens",
+        "nested_movie_casts": "Elijah Wood, Viggo Mortensen, Ian McKellen"
+    },
+    {
+        "movie_rank": "8",
+        "movie_image_url": "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UY67_CR0,0,45,67_AL_.jpg",
+        "movie_title": "Pulp Fiction",
+        "movie_year": "1994",
+        "imdb_rating": "8.8",
+        "nested_movie_desc": "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
+        "nested_movie_director": "Quentin Tarantino",
+        "nested_movie_writer": "Quentin Tarantino, Roger Avary",
+        "nested_movie_casts": "John Travolta, Uma Thurman, Samuel L. Jackson"
+    },
+    {
+        "movie_rank": "9",
+        "movie_image_url": "https://m.media-amazon.com/images/M/MV5BOTQ5NDI3MTI4MF5BMl5BanBnXkFtZTgwNDQ4ODE5MDE@._V1_UX45_CR0,0,45,67_AL_.jpg",
+        "movie_title": "Il buono, il brutto, il cattivo",
+        "movie_year": "1966",
+        "imdb_rating": "8.8",
+        "nested_movie_desc": "A bounty hunting scam joins two men in an uneasy alliance against a third in a race to find a fortune in gold buried in a remote cemetery.A bounty hunting scam joins two men in an uneasy alliance against a third in a race to find a fortune in gold buried in a remote cemetery.A bounty hunting scam joins two men in an uneasy alliance against a third in a race to find a fortune in gold buried in a remote cemetery.",
+        "nested_movie_director": "Sergio Leone",
+        "nested_movie_writer": "Luciano Vincenzoni, Sergio Leone, Agenore Incrocci",
+        "nested_movie_casts": "Clint Eastwood, Eli Wallach, Lee Van Cleef"
+    },
+    {
+        "movie_rank": "10",
+        "movie_image_url": "https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_UY67_CR0,0,45,67_AL_.jpg",
+        "movie_title": "The Lord of the Rings: The Fellowship of the Ring",
+        "movie_year": "2001",
+        "imdb_rating": "8.8",
+        "nested_movie_desc": "A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.",
+        "nested_movie_director": "Peter Jackson",
+        "nested_movie_writer": "J.R.R. Tolkien, Fran Walsh, Philippa Boyens",
+        "nested_movie_casts": "Elijah Wood, Ian McKellen, Orlando Bloom"
+    },
+    {
+        "movie_rank": "11",
+        "movie_image_url": "https://m.media-amazon.com/images/M/MV5BMmEzNTkxYjQtZTc0MC00YTVjLTg5ZTEtZWMwOWVlYzY0NWIwXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UX45_CR0,0,45,67_AL_.jpg",
+        "movie_title": "Fight Club",
+        "movie_year": "1999",
+        "imdb_rating": "8.8",
+        "nested_movie_desc": "An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into much more.An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into much more.An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into much more.",
+        "nested_movie_director": "David Fincher",
+        "nested_movie_writer": "Chuck Palahniuk, Jim Uhls",
+        "nested_movie_casts": "Brad Pitt, Edward Norton, Meat Loaf"
+    },
+    {
+        "movie_rank": "12",
+        "movie_image_url": "https://m.media-amazon.com/images/M/MV5BNWIwODRlZTUtY2U3ZS00Yzg1LWJhNzYtMmZiYmEyNmU1NjMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UY67_CR0,0,45,67_AL_.jpg",
+        "movie_title": "Forrest Gump",
+        "movie_year": "1994",
+        "imdb_rating": "8.7",
+        "nested_movie_desc": "The presidencies of Kennedy and Johnson, the Vietnam War, the Watergate scandal and other historical events unfold from the perspective of an Alabama man with an IQ of 75, whose only desire ...Read allThe presidencies of Kennedy and Johnson, the Vietnam War, the Watergate scandal and other historical events unfold from the perspective of an Alabama man with an IQ of 75, whose only desire is to be reunited with his childhood sweetheart.The presidencies of Kennedy and Johnson, the Vietnam War, the Watergate scandal and other historical events unfold from the perspective of an Alabama man with an IQ of 75, whose only desire is to be reunited with his childhood sweetheart.",
+        "nested_movie_director": "Robert Zemeckis",
+        "nested_movie_writer": "Winston Groom, Eric Roth",
+        "nested_movie_casts": "Tom Hanks, Robin Wright, Gary Sinise"
+    },
+    {
+        "movie_rank": "13",
+        "movie_image_url": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_UY67_CR0,0,45,67_AL_.jpg",
+        "movie_title": "Inception",
+        "movie_year": "2010",
+        "imdb_rating": "8.7",
+        "nested_movie_desc": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the pro...Read allA thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.",
+        "nested_movie_director": "Christopher Nolan",
+        "nested_movie_writer": "Christopher Nolan",
+        "nested_movie_casts": "Leonardo DiCaprio, Joseph Gordon-Levitt, Elliot Page"
+    },
+    {
+        "movie_rank": "14",
+        "movie_image_url": "https://m.media-amazon.com/images/M/MV5BZGMxZTdjZmYtMmE2Ni00ZTdkLWI5NTgtNjlmMjBiNzU2MmI5XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX45_CR0,0,45,67_AL_.jpg",
+        "movie_title": "The Lord of the Rings: The Two Towers",
+        "movie_year": "2002",
+        "imdb_rating": "8.7",
+        "nested_movie_desc": "While Frodo and Sam edge closer to Mordor with the help of the shifty Gollum, the divided fellowship makes a stand against Sauron's new ally, Saruman, and his hordes of Isengard.While Frodo and Sam edge closer to Mordor with the help of the shifty Gollum, the divided fellowship makes a stand against Sauron's new ally, Saruman, and his hordes of Isengard.While Frodo and Sam edge closer to Mordor with the help of the shifty Gollum, the divided fellowship makes a stand against Sauron's new ally, Saruman, and his hordes of Isengard.",
+        "nested_movie_director": "Peter Jackson",
+        "nested_movie_writer": "J.R.R. Tolkien, Fran Walsh, Philippa Boyens",
+        "nested_movie_casts": "Elijah Wood, Ian McKellen, Viggo Mortensen"
+    },
+    {
+        "movie_rank": "15",
+        "movie_image_url": "https://m.media-amazon.com/images/M/MV5BYmU1NDRjNDgtMzhiMi00NjZmLTg5NGItZDNiZjU5NTU4OTE0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UX45_CR0,0,45,67_AL_.jpg",
+        "movie_title": "Star Wars: Episode V - The Empire Strikes Back",
+        "movie_year": "1980",
+        "imdb_rating": "8.7",
+        "nested_movie_desc": "After the Rebels are brutally overpowered by the Empire on the ice planet Hoth, Luke Skywalker begins Jedi training with Yoda, while his friends are pursued across the galaxy by Darth Vader ...Read allAfter the Rebels are brutally overpowered by the Empire on the ice planet Hoth, Luke Skywalker begins Jedi training with Yoda, while his friends are pursued across the galaxy by Darth Vader and bounty hunter Boba Fett.After the Rebels are brutally overpowered by the Empire on the ice planet Hoth, Luke Skywalker begins Jedi training with Yoda, while his friends are pursued across the galaxy by Darth Vader and bounty hunter Boba Fett.",
+        "nested_movie_director": "Irvin Kershner",
+        "nested_movie_writer": "Leigh Brackett, Lawrence Kasdan, George Lucas",
+        "nested_movie_casts": "Mark Hamill, Harrison Ford, Carrie Fisher"
+    },
+    {
+        "movie_rank": "16",
+        "movie_image_url": "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX45_CR0,0,45,67_AL_.jpg",
+        "movie_title": "The Matrix",
+        "movie_year": "1999",
+        "imdb_rating": "8.6",
+        "nested_movie_desc": "When a beautiful stranger leads computer hacker Neo to a forbidding underworld, he discovers the shocking truth--the life he knows is the elaborate deception of an evil cyber-intelligence.When a beautiful stranger leads computer hacker Neo to a forbidding underworld, he discovers the shocking truth--the life he knows is the elaborate deception of an evil cyber-intelligence.When a beautiful stranger leads computer hacker Neo to a forbidding underworld, he discovers the shocking truth--the life he knows is the elaborate deception of an evil cyber-intelligence.",
+        "nested_movie_director": "Lana Wachowski, Lilly Wachowski",
+        "nested_movie_writer": "Lilly Wachowski, Lana Wachowski",
+        "nested_movie_casts": "Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss"
+    },
+    {
+        "movie_rank": "17",
+        "movie_image_url": "https://m.media-amazon.com/images/M/MV5BY2NkZjEzMDgtN2RjYy00YzM1LWI4ZmQtMjIwYjFjNmI3ZGEwXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UX45_CR0,0,45,67_AL_.jpg",
+        "movie_title": "Goodfellas",
+        "movie_year": "1990",
+        "imdb_rating": "8.6",
+        "nested_movie_desc": "The story of Henry Hill and his life in the mob, covering his relationship with his wife Karen Hill and his mob partners Jimmy Conway and Tommy DeVito in the Italian-American crime syndicate...Read allThe story of Henry Hill and his life in the mob, covering his relationship with his wife Karen Hill and his mob partners Jimmy Conway and Tommy DeVito in the Italian-American crime syndicate.The story of Henry Hill and his life in the mob, covering his relationship with his wife Karen Hill and his mob partners Jimmy Conway and Tommy DeVito in the Italian-American crime syndicate.",
+        "nested_movie_director": "Martin Scorsese",
+        "nested_movie_writer": "Nicholas Pileggi, Martin Scorsese",
+        "nested_movie_casts": "Robert De Niro, Ray Liotta, Joe Pesci"
+    },
+    {
+        "movie_rank": "18",
+        "movie_image_url": "https://m.media-amazon.com/images/M/MV5BZjA0OWVhOTAtYWQxNi00YzNhLWI4ZjYtNjFjZTEyYjJlNDVlL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UY67_CR0,0,45,67_AL_.jpg",
+        "movie_title": "One Flew Over the Cuckoo's Nest",
+        "movie_year": "1975",
+        "imdb_rating": "8.6",
+        "nested_movie_desc": "A criminal pleads insanity and is admitted to a mental institution, where he rebels against the oppressive nurse and rallies up the scared patients.A criminal pleads insanity and is admitted to a mental institution, where he rebels against the oppressive nurse and rallies up the scared patients.A criminal pleads insanity and is admitted to a mental institution, where he rebels against the oppressive nurse and rallies up the scared patients.",
+        "nested_movie_director": "Milos Forman",
+        "nested_movie_writer": "Lawrence Hauben, Bo Goldman, Ken Kesey",
+        "nested_movie_casts": "Jack Nicholson, Louise Fletcher, Michael Berryman"
+    },
+    {
+        "movie_rank": "19",
+        "movie_image_url": "https://m.media-amazon.com/images/M/MV5BOWE4ZDdhNmMtNzE5ZC00NzExLTlhNGMtY2ZhYjYzODEzODA1XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_UY67_CR1,0,45,67_AL_.jpg",
+        "movie_title": "Shichinin no samurai",
+        "movie_year": "1954",
+        "imdb_rating": "8.6",
+        "nested_movie_desc": "No Description Provided",
+        "nested_movie_director": "Not provided",
+        "nested_movie_writer": "Not provided",
+        "nested_movie_casts": "Not provided"
+    },
+    {
+        "movie_rank": "20",
+        "movie_image_url": "https://m.media-amazon.com/images/M/MV5BOTUwODM5MTctZjczMi00OTk4LTg3NWUtNmVhMTAzNTNjYjcyXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX45_CR0,0,45,67_AL_.jpg",
+        "movie_title": "Se7en",
+        "movie_year": "1995",
+        "imdb_rating": "8.6",
+        "nested_movie_desc": "Two detectives, a rookie and a veteran, hunt a serial killer who uses the seven deadly sins as his motives.Two detectives, a rookie and a veteran, hunt a serial killer who uses the seven deadly sins as his motives.Two detectives, a rookie and a veteran, hunt a serial killer who uses the seven deadly sins as his motives.",
+        "nested_movie_director": "David Fincher",
+        "nested_movie_writer": "Andrew Kevin Walker",
+        "nested_movie_casts": "Morgan Freeman, Brad Pitt, Kevin Spacey"
+    }
+]

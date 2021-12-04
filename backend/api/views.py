@@ -180,3 +180,16 @@ def myHistory(request, user_id):
         return JsonResponse("Added Fail", safe=False)
 
     return HttpResponse("Not GET or Post")
+
+
+
+import json
+from api.crawler import run
+run()
+
+def movieList(request):
+    
+    with open('./test.json', "r") as read_file:
+        jList = json.load(read_file)
+
+    return JsonResponse(jList, safe=False)
